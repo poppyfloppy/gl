@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3C0C6B2E1B27631800EB3BD7 /* Cube.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C6B2D1B27631800EB3BD7 /* Cube.m */; };
 		3C6521971B0AAA6900AAA7A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521961B0AAA6900AAA7A3 /* main.m */; };
 		3C65219A1B0AAA6900AAA7A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521991B0AAA6900AAA7A3 /* AppDelegate.m */; };
 		3C65219C1B0AAA6900AAA7A3 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3C65219B1B0AAA6900AAA7A3 /* Shader.fsh */; };
@@ -16,6 +17,8 @@
 		3C6521A61B0AAA6900AAA7A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C6521A51B0AAA6900AAA7A3 /* Images.xcassets */; };
 		3C6521A91B0AAA6900AAA7A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6521A71B0AAA6900AAA7A3 /* LaunchScreen.xib */; };
 		3C6521B51B0AAA6900AAA7A3 /* DirtyBallsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521B41B0AAA6900AAA7A3 /* DirtyBallsTests.m */; };
+		3C7A33A61B10043000159E36 /* ShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A33A51B10043000159E36 /* ShaderProgram.m */; };
+		3C7A33A91B12436B00159E36 /* Sphere.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A33A81B12436B00159E36 /* Sphere.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +32,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3C0C6B2C1B27631800EB3BD7 /* Cube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cube.h; sourceTree = "<group>"; };
+		3C0C6B2D1B27631800EB3BD7 /* Cube.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cube.m; sourceTree = "<group>"; };
 		3C6521911B0AAA6900AAA7A3 /* DirtyBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirtyBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6521951B0AAA6900AAA7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C6521961B0AAA6900AAA7A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -44,6 +49,11 @@
 		3C6521AE1B0AAA6900AAA7A3 /* DirtyBallsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DirtyBallsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6521B31B0AAA6900AAA7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C6521B41B0AAA6900AAA7A3 /* DirtyBallsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DirtyBallsTests.m; sourceTree = "<group>"; };
+		3C7A33A41B10043000159E36 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
+		3C7A33A51B10043000159E36 /* ShaderProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderProgram.m; sourceTree = "<group>"; };
+		3C7A33A71B12436B00159E36 /* Sphere.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sphere.h; sourceTree = "<group>"; };
+		3C7A33A81B12436B00159E36 /* Sphere.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sphere.m; sourceTree = "<group>"; };
+		3C7A33AA1B12458B00159E36 /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,13 @@
 				3C6521A51B0AAA6900AAA7A3 /* Images.xcassets */,
 				3C6521A71B0AAA6900AAA7A3 /* LaunchScreen.xib */,
 				3C6521941B0AAA6900AAA7A3 /* Supporting Files */,
+				3C7A33A41B10043000159E36 /* ShaderProgram.h */,
+				3C7A33A51B10043000159E36 /* ShaderProgram.m */,
+				3C7A33A71B12436B00159E36 /* Sphere.h */,
+				3C7A33A81B12436B00159E36 /* Sphere.m */,
+				3C7A33AA1B12458B00159E36 /* Vertex.h */,
+				3C0C6B2C1B27631800EB3BD7 /* Cube.h */,
+				3C0C6B2D1B27631800EB3BD7 /* Cube.m */,
 			);
 			path = DirtyBalls;
 			sourceTree = "<group>";
@@ -228,7 +245,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C65219A1B0AAA6900AAA7A3 /* AppDelegate.m in Sources */,
+				3C7A33A61B10043000159E36 /* ShaderProgram.m in Sources */,
 				3C6521A11B0AAA6900AAA7A3 /* GameViewController.m in Sources */,
+				3C7A33A91B12436B00159E36 /* Sphere.m in Sources */,
+				3C0C6B2E1B27631800EB3BD7 /* Cube.m in Sources */,
 				3C6521971B0AAA6900AAA7A3 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -426,6 +446,7 @@
 				3C6521BA1B0AAA6900AAA7A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3C6521BB1B0AAA6900AAA7A3 /* Build configuration list for PBXNativeTarget "DirtyBallsTests" */ = {
 			isa = XCConfigurationList;
@@ -434,6 +455,7 @@
 				3C6521BD1B0AAA6900AAA7A3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

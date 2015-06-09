@@ -6,9 +6,10 @@
 //  Copyright (c) 2015 Valeriy. All rights reserved.
 //
 
-varying lowp vec4 colorVarying;
+#version 300 es
 
-void main()
-{
-    gl_FragColor = colorVarying;
+in lowp vec4 colorVarying;
+layout (location = 0) out lowp vec4 fragColor;
+void main() {
+    fragColor = colorVarying;
 }

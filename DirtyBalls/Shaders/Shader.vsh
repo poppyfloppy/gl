@@ -6,16 +6,17 @@
 //  Copyright (c) 2015 Valeriy. All rights reserved.
 //
 
-attribute vec4 position;
-attribute vec3 normal;
+#version 300 es
 
-varying lowp vec4 colorVarying;
+layout (location = 0) in vec4 position;
+layout (location = 1) in vec3 normal;
+
+out lowp vec4 colorVarying;
 
 uniform mat4 modelViewProjectionMatrix;
 uniform mat3 normalMatrix;
 
-void main()
-{
+void main() {
     vec3 eyeNormal = normalize(normalMatrix * normal);
     vec3 lightPosition = vec3(0.0, 0.0, 1.0);
     vec4 diffuseColor = vec4(0.4, 0.4, 1.0, 1.0);
