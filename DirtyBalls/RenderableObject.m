@@ -45,13 +45,16 @@
         m_Position = position;
         m_Color = color;
         m_Size = size;
-//        [self initVertexBuffer];
-//        [self initColorBuffer];
-//        [self initIndexBuffer];
-//        [self initArrayBuffer];
     }
     
     return self;
+}
+
+- (void)initBuffers {
+    [self initVertexBuffer];
+    [self initColorBuffer];
+    [self initIndexBuffer];
+    [self initArrayBuffer];
 }
 
 - (void)initVertexBuffer {
@@ -88,7 +91,7 @@
 - (void)initArrayBuffer {
     self.arrayBuffer = [ArrayBuffer new];
     [self.arrayBuffer addBuffer:self.vertexBuffer atIndex:0];
-    [self.arrayBuffer addBuffer:self.vertexBuffer atIndex:1];
+    [self.arrayBuffer addBuffer:self.colorBuffer atIndex:1];
 }
 
 - (void)dealloc {

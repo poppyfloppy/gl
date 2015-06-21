@@ -10,4 +10,10 @@
 
 @implementation Render2d
 
+- (void)start{
+}
+
+- (void)end{
+}
+
 @end

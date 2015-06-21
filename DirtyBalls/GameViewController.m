@@ -64,7 +64,7 @@
     
     sprites = [NSMutableArray new];
     float gap = 0.2;
-    int count = 100;
+    int count = 10;
     float width = [UIScreen mainScreen].bounds.size.width / 10 - gap * (count - 1);
     float height = [UIScreen mainScreen].bounds.size.height/ 10 - gap * (count - 1);
     float spriteWidth = width / count;
@@ -72,6 +72,7 @@
     for (int i = 0; i < count; i++) {
         for (int j = 0; j < count; j++) {
             RenderableObject *object = [[RenderableObject alloc] initWithPosition:GLKVector3Make((spriteWidth + gap) * i, (spriteHeight + gap) * j, 0) size:CGSizeMake(spriteWidth, spriteHeight) andColor:GLKVector4Make(0.0, 1.0, 1.0, 1.0)];
+//            [object initBuffers];
             [object setShader:program];
             [sprites addObject:object];
         }

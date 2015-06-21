@@ -29,5 +29,6 @@
 //Текстура в будущем
 
 - (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andColor:(GLKVector4)color;
+- (void)initBuffers;
 
 @end

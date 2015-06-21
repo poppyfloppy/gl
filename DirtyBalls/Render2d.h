@@ -13,7 +13,9 @@
 @interface Render2d : NSObject {
 }
 
+- (void)start;
 - (void)submit:(RenderableObject *)object;
+- (void)end;
 - (void)flush;
 
 @end
