@@ -9,65 +9,22 @@
 #import "GameViewController.h"
 #import <OpenGLES/ES3/glext.h>
 #import "ShaderProgram.h"
-#import "Sphere.h"
-
-#define BUFFER_OFFSET(i) ((char *)NULL + (i))
-
-GLfloat gCubeVertexData[216] =  {
-    0.5f, -0.5f, -0.5f,        1.0f, 0.0f, 0.0f,
-    0.5f, 0.5f, -0.5f,         1.0f, 0.0f, 0.0f,
-    0.5f, -0.5f, 0.5f,         1.0f, 0.0f, 0.0f,
-    0.5f, -0.5f, 0.5f,         1.0f, 0.0f, 0.0f,
-    0.5f, 0.5f, -0.5f,         1.0f, 0.0f, 0.0f,
-    0.5f, 0.5f, 0.5f,          1.0f, 0.0f, 0.0f,
-    
-    0.5f, 0.5f, -0.5f,         0.0f, 1.0f, 0.0f,
-    -0.5f, 0.5f, -0.5f,        0.0f, 1.0f, 0.0f,
-    0.5f, 0.5f, 0.5f,          0.0f, 1.0f, 0.0f,
-    0.5f, 0.5f, 0.5f,          0.0f, 1.0f, 0.0f,
-    -0.5f, 0.5f, -0.5f,        0.0f, 1.0f, 0.0f,
-    -0.5f, 0.5f, 0.5f,         0.0f, 1.0f, 0.0f,
-    
-    -0.5f, 0.5f, -0.5f,        -1.0f, 0.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f,       -1.0f, 0.0f, 0.0f,
-    -0.5f, 0.5f, 0.5f,         -1.0f, 0.0f, 0.0f,
-    -0.5f, 0.5f, 0.5f,         -1.0f, 0.0f, 0.0f,
-    -0.5f, -0.5f, -0.5f,       -1.0f, 0.0f, 0.0f,
-    -0.5f, -0.5f, 0.5f,        -1.0f, 0.0f, 0.0f,
-    
-    -0.5f, -0.5f, -0.5f,       0.0f, -1.0f, 0.0f,
-    0.5f, -0.5f, -0.5f,        0.0f, -1.0f, 0.0f,
-    -0.5f, -0.5f, 0.5f,        0.0f, -1.0f, 0.0f,
-    -0.5f, -0.5f, 0.5f,        0.0f, -1.0f, 0.0f,
-    0.5f, -0.5f, -0.5f,        0.0f, -1.0f, 0.0f,
-    0.5f, -0.5f, 0.5f,         0.0f, -1.0f, 0.0f,
-    
-    0.5f, 0.5f, 0.5f,          0.0f, 0.0f, 1.0f,
-    -0.5f, 0.5f, 0.5f,         0.0f, 0.0f, 1.0f,
-    0.5f, -0.5f, 0.5f,         0.0f, 0.0f, 1.0f,
-    0.5f, -0.5f, 0.5f,         0.0f, 0.0f, 1.0f,
-    -0.5f, 0.5f, 0.5f,         0.0f, 0.0f, 1.0f,
-    -0.5f, -0.5f, 0.5f,        0.0f, 0.0f, 1.0f,
-    
-    0.5f, -0.5f, -0.5f,        0.0f, 0.0f, -1.0f,
-    -0.5f, -0.5f, -0.5f,       0.0f, 0.0f, -1.0f,
-    0.5f, 0.5f, -0.5f,         0.0f, 0.0f, -1.0f,
-    0.5f, 0.5f, -0.5f,         0.0f, 0.0f, -1.0f,
-    -0.5f, -0.5f, -0.5f,       0.0f, 0.0f, -1.0f,
-    -0.5f, 0.5f, -0.5f,        0.0f, 0.0f, -1.0f
-};
+#import "Buffer.h"
+#import "ArrayBuffer.h"
+#import "RenderableObject.h"
+#import "FirstRender2d.h"
+#import "BatchRender2d.h"
 
 @interface GameViewController () {
     ShaderProgram *program;
+    RenderableObject *sprite, *sprite2, *sprite3;
+    FirstRender2d *render;
+    BatchRender2d *render2;
+    NSMutableArray *sprites;
     
-    GLKMatrix4 _modelViewProjectionMatrix;
-    GLKMatrix3 _normalMatrix;
-    float _rotation;
-    
-    GLuint _vertexArray;
-    GLuint _vertexBuffer;
-    Sphere *sphere;
+    GLKVector2 pos;
 }
+
 @property (strong, nonatomic) EAGLContext *context;
 
 - (void)setupGL;
@@ -93,20 +50,38 @@ GLfloat gCubeVertexData[216] =  {
 
 - (void)setupGL {
     [EAGLContext setCurrentContext:self.context];
-    program = [[ShaderProgram alloc] initWithVShader:@"Shader.vsh" andFShader:@"Shader.fsh"];
+    program = [[ShaderProgram alloc] initWithVShader:@"2dLight.vsh" andFShader:@"2dLight.fsh"];
     glEnable(GL_DEPTH_TEST);
+    GLKMatrix4 projectionMatrix = GLKMatrix4MakeOrtho(0, [UIScreen mainScreen].bounds.size.width / 10, 0, [UIScreen mainScreen].bounds.size.height/ 10, -10, 10);
+    [program activateProgram];
+    glUniformMatrix4fv([program getUniformLocation:@"modelViewMatrix"], 1, 0, GLKMatrix4Identity.m);
+    glUniformMatrix4fv([program getUniformLocation:@"projectionMatrix"], 1, 0, projectionMatrix.m);
+    [program disableProgram];
+   
+    sprite = [[RenderableObject alloc] initWithPosition:GLKVector3Make(0, 0, 0) size:CGSizeMake(10, 10) andColor:GLKVector4Make(1.0, 0.0, 0.0, 1.0)];
+    sprite2 = [[RenderableObject alloc] initWithPosition:GLKVector3Make(11, 0, 0) size:CGSizeMake(10, 10) andColor:GLKVector4Make(0.0, 0.0, 1.0, 1.0)];
+    sprite3 = [[RenderableObject alloc] initWithPosition:GLKVector3Make(0, 15, 0) size:CGSizeMake(10, 10) andColor:GLKVector4Make(0.0, 0.0, 1.0, 1.0)];
     
-    glGenVertexArrays(1, &_vertexArray);
-    glBindVertexArray(_vertexArray);
-    glGenBuffers(1, &_vertexBuffer);
-    glBindBuffer(GL_ARRAY_BUFFER, _vertexBuffer);
-    glBufferData(GL_ARRAY_BUFFER, sizeof(gCubeVertexData), gCubeVertexData, GL_STATIC_DRAW);
-    glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 24, BUFFER_OFFSET(0));
-    glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 24, BUFFER_OFFSET(12));
-    glBindVertexArray(0);
-    sphere = [[Sphere alloc] initWith:5.0];
+    sprites = [NSMutableArray new];
+    float gap = 0.2;
+    int count = 100;
+    float width = [UIScreen mainScreen].bounds.size.width / 10 - gap * (count - 1);
+    float height = [UIScreen mainScreen].bounds.size.height/ 10 - gap * (count - 1);
+    float spriteWidth = width / count;
+    float spriteHeight = height / count;
+    for (int i = 0; i < count; i++) {
+        for (int j = 0; j < count; j++) {
+            RenderableObject *object = [[RenderableObject alloc] initWithPosition:GLKVector3Make((spriteWidth + gap) * i, (spriteHeight + gap) * j, 0) size:CGSizeMake(spriteWidth, spriteHeight) andColor:GLKVector4Make(0.0, 1.0, 1.0, 1.0)];
+            [object setShader:program];
+            [sprites addObject:object];
+        }
+    }
+    
+    [sprite setShader:program];
+    [sprite2 setShader:program];
+    [sprite3 setShader:program];
+    render = [FirstRender2d new];
+    render2 = [BatchRender2d new];
 }
 
 #pragma mark dealloc OpenGL
@@ -131,8 +106,6 @@ GLfloat gCubeVertexData[216] =  {
 
 - (void)tearDownGL {
     [EAGLContext setCurrentContext:self.context];
-    glDeleteBuffers(1, &_vertexBuffer);
-    glDeleteVertexArrays(1, &_vertexArray);
     if ([program getProgram] > 0) {
         [program deleteProgram];
     }
@@ -140,29 +113,26 @@ GLfloat gCubeVertexData[216] =  {
 
 #pragma mark - GLKView and GLKViewController delegate methods
 - (void)update {
-    float aspect = fabs(self.view.bounds.size.width / self.view.bounds.size.height);
-//    GLKMatrix4 projectionMatrix = GLKMatrix4MakePerspective(GLKMathDegreesToRadians(65.0f), aspect, 0.1f, 100.0f);
-    GLKMatrix4 projectionMatrix = GLKMatrix4MakeOrtho(-10, 10, -10, 10, -10, 10);
-    GLKMatrix4 baseModelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, -4.0f);
-    baseModelViewMatrix = GLKMatrix4Rotate(baseModelViewMatrix, _rotation, 0.0f, 1.0f, 0.0f);
-    GLKMatrix4 modelViewMatrix = GLKMatrix4MakeTranslation(0.0f, 0.0f, 1.5f);
-    modelViewMatrix = GLKMatrix4Rotate(modelViewMatrix, _rotation, 1.0f, 1.0f, 1.0f);
-    modelViewMatrix = GLKMatrix4Multiply(baseModelViewMatrix, modelViewMatrix);
-    
-    _normalMatrix = GLKMatrix3InvertAndTranspose(GLKMatrix4GetMatrix3(modelViewMatrix), NULL);
-    _modelViewProjectionMatrix = GLKMatrix4Multiply(projectionMatrix, modelViewMatrix);
-    _rotation += self.timeSinceLastUpdate * 0.5f;
+    float width = [UIScreen mainScreen].bounds.size.width / 10;
+    float height = [UIScreen mainScreen].bounds.size.height/ 10;
+    pos = GLKVector2Make(pos.x + width / 300.0f, pos.y + height / 300.0f);
+    [program activateProgram];
+    glUniform2f([program getUniformLocation:@"lightPosition"], pos.x, pos.y);
+    [program disableProgram];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-    glClearColor(0.65f, 0.65f, 0.65f, 1.0f);
+    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    glBindVertexArray(_vertexArray);
+//    [render flush];
     [program activateProgram];
-    glUniformMatrix4fv([program getUniformLocation:@"modelViewProjectionMatrix"], 1, 0, _modelViewProjectionMatrix.m);
-    glUniformMatrix3fv([program getUniformLocation:@"normalMatrix"], 1, 0, _normalMatrix.m);
-    glDrawArrays(GL_TRIANGLES, 0, 36);
-    [sphere render];
+    [render2 start];
+    for (int i = 0; i < sprites.count; i++)
+        [render2 submit:[sprites objectAtIndex:i]];
+    [render2 end];
+    [render2 flush];
+    [program disableProgram];
+//    NSLog(@"OpenGl error: %d", glGetError());
 }
 
 @end

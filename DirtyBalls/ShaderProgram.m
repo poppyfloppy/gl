@@ -164,7 +164,8 @@
 }
 
 - (GLuint)getUniformLocation:(NSString *)name {
-    return glGetUniformLocation(program, [name cStringUsingEncoding:NSUTF8StringEncoding]);
+    GLuint location = glGetUniformLocation(program, [name cStringUsingEncoding:NSUTF8StringEncoding]);
+    return location;
 }
 
 @end
