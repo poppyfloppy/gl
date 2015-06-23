@@ -14,12 +14,14 @@
 #import "RenderableObject.h"
 #import "FirstRender2d.h"
 #import "BatchRender2d.h"
+#import "Layer.h"
+#import "Texture.h"
 
 @interface GameViewController () {
     ShaderProgram *program;
-    RenderableObject *sprite, *sprite2, *sprite3;
     FirstRender2d *render;
     BatchRender2d *render2;
+    Layer *layer;
     NSMutableArray *sprites;
     
     GLKVector2 pos;
@@ -53,36 +55,32 @@
     program = [[ShaderProgram alloc] initWithVShader:@"2dLight.vsh" andFShader:@"2dLight.fsh"];
     glEnable(GL_DEPTH_TEST);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakeOrtho(0, [UIScreen mainScreen].bounds.size.width / 10, 0, [UIScreen mainScreen].bounds.size.height/ 10, -10, 10);
-    [program activateProgram];
-    glUniformMatrix4fv([program getUniformLocation:@"modelViewMatrix"], 1, 0, GLKMatrix4Identity.m);
-    glUniformMatrix4fv([program getUniformLocation:@"projectionMatrix"], 1, 0, projectionMatrix.m);
-    [program disableProgram];
-   
-    sprite = [[RenderableObject alloc] initWithPosition:GLKVector3Make(0, 0, 0) size:CGSizeMake(10, 10) andColor:GLKVector4Make(1.0, 0.0, 0.0, 1.0)];
-    sprite2 = [[RenderableObject alloc] initWithPosition:GLKVector3Make(11, 0, 0) size:CGSizeMake(10, 10) andColor:GLKVector4Make(0.0, 0.0, 1.0, 1.0)];
-    sprite3 = [[RenderableObject alloc] initWithPosition:GLKVector3Make(0, 15, 0) size:CGSizeMake(10, 10) andColor:GLKVector4Make(0.0, 0.0, 1.0, 1.0)];
-    
     sprites = [NSMutableArray new];
     float gap = 0.2;
-    int count = 10;
+    int count = 5;
     float width = [UIScreen mainScreen].bounds.size.width / 10 - gap * (count - 1);
     float height = [UIScreen mainScreen].bounds.size.height/ 10 - gap * (count - 1);
     float spriteWidth = width / count;
     float spriteHeight = height / count;
+    Texture *texture = [[Texture alloc] initWith:@"crate.jpg"];
     for (int i = 0; i < count; i++) {
         for (int j = 0; j < count; j++) {
-            RenderableObject *object = [[RenderableObject alloc] initWithPosition:GLKVector3Make((spriteWidth + gap) * i, (spriteHeight + gap) * j, 0) size:CGSizeMake(spriteWidth, spriteHeight) andColor:GLKVector4Make(0.0, 1.0, 1.0, 1.0)];
-//            [object initBuffers];
+//            RenderableObject *object = [[RenderableObject alloc] initWithPosition:GLKVector3Make((spriteWidth + gap) * i, (spriteHeight + gap) * j, 0) size:CGSizeMake(spriteWidth, spriteHeight) andColor:GLKVector4Make(0.0, 1.0, 1.0, 1.0)];
+            RenderableObject *object = [[RenderableObject alloc] initWithPosition:GLKVector3Make((spriteWidth + gap) * i, (spriteHeight + gap) * j, 0) size:CGSizeMake(spriteWidth, spriteHeight) andTexture:texture];
+            [object initBuffers];
             [object setShader:program];
             [sprites addObject:object];
         }
     }
-    
-    [sprite setShader:program];
-    [sprite2 setShader:program];
-    [sprite3 setShader:program];
     render = [FirstRender2d new];
     render2 = [BatchRender2d new];
+    layer = [Layer new];
+    [layer setShader:program];
+    [layer setProjectionMatrix:projectionMatrix];
+    [layer setRenderer:render];
+    for (int i = 0; i < sprites.count; i++) {
+        [layer add:sprites[i]];
+    }
 }
 
 #pragma mark dealloc OpenGL
@@ -125,15 +123,8 @@
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//    [render flush];
-    [program activateProgram];
-    [render2 start];
-    for (int i = 0; i < sprites.count; i++)
-        [render2 submit:[sprites objectAtIndex:i]];
-    [render2 end];
-    [render2 flush];
-    [program disableProgram];
-//    NSLog(@"OpenGl error: %d", glGetError());
+    [layer render];
+    //    NSLog(@"OpenGl error: %d", glGetError());
 }
 
 @end

@@ -12,6 +12,7 @@
 #import "Buffer.h"
 #import "IndexBuffer.h"
 #import "ShaderProgram.h"
+#import "Texture.h"
 
 @interface RenderableObject : NSObject {
     
@@ -27,8 +28,11 @@
 @property (nonatomic, strong) Buffer *colorBuffer;
 @property (nonatomic, strong) IndexBuffer *indexBuffer;
 //Текстура в будущем
+@property (nonatomic, strong) Texture *texture;
+@property (nonatomic, strong) Buffer *textureBuffer;
 
 - (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andColor:(GLKVector4)color;
+- (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andTexture:(Texture *)texture;
 - (void)initBuffers;
 
 @end

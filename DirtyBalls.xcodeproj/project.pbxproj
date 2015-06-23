@@ -16,6 +16,9 @@
 		3C0C6B491B2B22C700EB3BD7 /* RenderableObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C6B481B2B22C700EB3BD7 /* RenderableObject.m */; };
 		3C0C6B4C1B2B409800EB3BD7 /* FirstRender2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C6B4B1B2B409800EB3BD7 /* FirstRender2d.m */; };
 		3C0C6B501B2F8CAA00EB3BD7 /* BatchRender2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C6B4F1B2F8CAA00EB3BD7 /* BatchRender2d.m */; };
+		3C2C69191B377E6100EC2ACF /* Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C69181B377E6100EC2ACF /* Layer.m */; };
+		3C2C691C1B383F6D00EC2ACF /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C691B1B383F6D00EC2ACF /* Texture.m */; };
+		3C2C691F1B38480F00EC2ACF /* crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C2C691E1B38480F00EC2ACF /* crate.jpg */; };
 		3C6521971B0AAA6900AAA7A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521961B0AAA6900AAA7A3 /* main.m */; };
 		3C65219A1B0AAA6900AAA7A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521991B0AAA6900AAA7A3 /* AppDelegate.m */; };
 		3C65219C1B0AAA6900AAA7A3 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3C65219B1B0AAA6900AAA7A3 /* Shader.fsh */; };
@@ -55,6 +58,11 @@
 		3C0C6B4B1B2B409800EB3BD7 /* FirstRender2d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstRender2d.m; sourceTree = "<group>"; };
 		3C0C6B4E1B2F8CAA00EB3BD7 /* BatchRender2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BatchRender2d.h; sourceTree = "<group>"; };
 		3C0C6B4F1B2F8CAA00EB3BD7 /* BatchRender2d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BatchRender2d.m; sourceTree = "<group>"; };
+		3C2C69171B377E6100EC2ACF /* Layer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Layer.h; sourceTree = "<group>"; };
+		3C2C69181B377E6100EC2ACF /* Layer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layer.m; sourceTree = "<group>"; };
+		3C2C691A1B383F6D00EC2ACF /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
+		3C2C691B1B383F6D00EC2ACF /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
+		3C2C691E1B38480F00EC2ACF /* crate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate.jpg; sourceTree = "<group>"; };
 		3C6521911B0AAA6900AAA7A3 /* DirtyBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirtyBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6521951B0AAA6900AAA7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C6521961B0AAA6900AAA7A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -122,8 +130,20 @@
 				3C0C6B4E1B2F8CAA00EB3BD7 /* BatchRender2d.h */,
 				3C0C6B4F1B2F8CAA00EB3BD7 /* BatchRender2d.m */,
 				3C7A33AA1B12458B00159E36 /* Vertex.h */,
+				3C2C69171B377E6100EC2ACF /* Layer.h */,
+				3C2C69181B377E6100EC2ACF /* Layer.m */,
+				3C2C691A1B383F6D00EC2ACF /* Texture.h */,
+				3C2C691B1B383F6D00EC2ACF /* Texture.m */,
 			);
 			name = Render;
+			sourceTree = "<group>";
+		};
+		3C2C691D1B3847DE00EC2ACF /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3C2C691E1B38480F00EC2ACF /* crate.jpg */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		3C6521881B0AAA6900AAA7A3 = {
@@ -147,6 +167,7 @@
 		3C6521931B0AAA6900AAA7A3 /* DirtyBalls */ = {
 			isa = PBXGroup;
 			children = (
+				3C2C691D1B3847DE00EC2ACF /* Resources */,
 				3C0C6B341B29E00500EB3BD7 /* Render */,
 				3C0C6B331B29DFEB00EB3BD7 /* Shaders */,
 				3C6521981B0AAA6900AAA7A3 /* AppDelegate.h */,
@@ -276,6 +297,7 @@
 				3C6521A61B0AAA6900AAA7A3 /* Images.xcassets in Resources */,
 				3C65219E1B0AAA6900AAA7A3 /* Shader.vsh in Resources */,
 				3C65219C1B0AAA6900AAA7A3 /* Shader.fsh in Resources */,
+				3C2C691F1B38480F00EC2ACF /* crate.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,10 +318,12 @@
 				3C0C6B501B2F8CAA00EB3BD7 /* BatchRender2d.m in Sources */,
 				3C0C6B4C1B2B409800EB3BD7 /* FirstRender2d.m in Sources */,
 				3C65219A1B0AAA6900AAA7A3 /* AppDelegate.m in Sources */,
+				3C2C69191B377E6100EC2ACF /* Layer.m in Sources */,
 				3C0C6B491B2B22C700EB3BD7 /* RenderableObject.m in Sources */,
 				3C0C6B401B2AE62300EB3BD7 /* IndexBuffer.m in Sources */,
 				3C7A33A61B10043000159E36 /* ShaderProgram.m in Sources */,
 				3C0C6B431B2B224400EB3BD7 /* Render2d.m in Sources */,
+				3C2C691C1B383F6D00EC2ACF /* Texture.m in Sources */,
 				3C6521A11B0AAA6900AAA7A3 /* GameViewController.m in Sources */,
 				3C0C6B371B29E01E00EB3BD7 /* ArrayBuffer.m in Sources */,
 				3C0C6B3A1B2AE2B200EB3BD7 /* Buffer.m in Sources */,
