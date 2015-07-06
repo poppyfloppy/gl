@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <GLKit/GLKit.h>
+#import <OpenGLES/ES3/glext.h>
 
 @interface Texture : NSObject {
     

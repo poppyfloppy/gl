@@ -12,5 +12,6 @@
 typedef struct {
     GLKVector3 position;
     GLKVector4 color;
+    GLKVector2 texture;
 } Vertex;
 #endif

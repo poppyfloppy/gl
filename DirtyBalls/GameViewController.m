@@ -124,7 +124,7 @@
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     [layer render];
-    //    NSLog(@"OpenGl error: %d", glGetError());
+    NSLog(@"OpenGl error: %d", glGetError());
 }
 
 @end

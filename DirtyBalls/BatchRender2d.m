@@ -38,6 +38,9 @@
     //Цвет
     glEnableVertexAttribArray(1);
     glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, VERTEX_SIZE, (GLvoid *)offsetof(Vertex, color));
+    //Текстура
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, VERTEX_SIZE, (GLvoid *)offsetof(Vertex, texture));
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 }
@@ -79,15 +82,19 @@
     spritesInBuffer++;
     buffer->position = object.position;
     buffer->color = object.color;
+    buffer->texture = GLKVector2Make(0.0, 0.0);
     buffer++;
     buffer->position = GLKVector3Make(object.position.x, object.position.y + object.size.height, object.position.z);
     buffer->color = object.color;
+    buffer->texture = GLKVector2Make(0.0, 1.0);
     buffer++;
     buffer->position = GLKVector3Make(object.position.x + object.size.width, object.position.y + object.size.height, object.position.z);
     buffer->color = object.color;
+    buffer->texture = GLKVector2Make(1.0, 1.0);
     buffer++;
     buffer->position = GLKVector3Make(object.position.x + object.size.width, object.position.y, object.position.z);
     buffer->color = object.color;
+    buffer->texture = GLKVector2Make(1.0, 0.0);
     buffer++;
 }
 
