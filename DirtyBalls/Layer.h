@@ -12,6 +12,8 @@
 #import "RenderableObject.h"
 #import "Render2d.h"
 
+
+//Нужен ли ты? Хранить ли в тебе шейдер? 
 @interface Layer : NSObject {
     NSMutableArray *objects;
 }

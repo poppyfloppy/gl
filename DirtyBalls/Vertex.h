@@ -12,6 +12,25 @@
 typedef struct {
     GLKVector3 position;
     GLKVector4 color;
+} Vertex1P1C;
+
+typedef struct {
+    GLKVector3 position;
+    GLKVector4 color;
     GLKVector2 texture;
-} Vertex;
+} Vertex1P1C1T;
+
+typedef struct {
+    GLKVector3 position;
+    GLKVector2 texture1;
+    GLKVector2 texture2;
+} Vertex1P2T;
+
+typedef struct {
+    GLKVector3 position;
+    GLKVector2 texture1;
+    GLKVector2 texture2;
+    GLKVector2 texture3;
+} Vertex1P3T;
+
 #endif

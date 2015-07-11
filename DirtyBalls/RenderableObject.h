@@ -18,6 +18,10 @@
     
 }
 
+//Шейдер не нужен? Перенести его в Layer?
+//Position и Size перенести в наследника Sprite?
+
+
 @property (nonatomic, strong) ShaderProgram *shader;
 @property (nonatomic) GLKVector3 position;
 @property (nonatomic, readonly) CGSize size;

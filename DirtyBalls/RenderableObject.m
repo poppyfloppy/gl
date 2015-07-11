@@ -98,9 +98,9 @@
 - (void)initTextureBuffer {
     float data[] = {
         0.0, 0.0,
-        1.0, 0.0,
+        0.0, 1.0,
         1.0, 1.0,
-        0.0, 1.0
+        1.0, 0.0
     };
     self.textureBuffer = [Buffer new];
     [self.textureBuffer setData:data count:4 * 2 perComponent:2];

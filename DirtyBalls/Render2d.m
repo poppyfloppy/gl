@@ -13,6 +13,12 @@
 - (void)start{
 }
 
+- (void)submit:(RenderableObject *)object {
+}
+
+- (void)flush {
+}
+
 - (void)end{
 }
 

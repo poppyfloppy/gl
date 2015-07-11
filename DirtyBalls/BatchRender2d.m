@@ -34,13 +34,13 @@
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
     //Вершина
     glEnableVertexAttribArray(0);
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, VERTEX_SIZE, (GLvoid *)offsetof(Vertex, position));
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, VERTEX_SIZE, (GLvoid *)offsetof(Vertex1P1C1T, position));
     //Цвет
     glEnableVertexAttribArray(1);
-    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, VERTEX_SIZE, (GLvoid *)offsetof(Vertex, color));
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, VERTEX_SIZE, (GLvoid *)offsetof(Vertex1P1C1T, color));
     //Текстура
     glEnableVertexAttribArray(2);
-    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, VERTEX_SIZE, (GLvoid *)offsetof(Vertex, texture));
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, VERTEX_SIZE, (GLvoid *)offsetof(Vertex1P1C1T, texture));
     glBindBuffer(GL_ARRAY_BUFFER, 0);
     glBindVertexArray(0);
 }
@@ -70,7 +70,7 @@
 - (void)start {
     spritesInBuffer = 0;
     glBindBuffer(GL_ARRAY_BUFFER, vbo);
-    buffer = (Vertex *)glMapBufferRange(GL_ARRAY_BUFFER, 0, BUFFER_SIZE, GL_MAP_WRITE_BIT);
+    buffer = (Vertex1P1C1T *)glMapBufferRange(GL_ARRAY_BUFFER, 0, BUFFER_SIZE, GL_MAP_WRITE_BIT);
 }
 
 - (void)end {

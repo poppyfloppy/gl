@@ -14,6 +14,8 @@
     
 }
 
+//Передевать еще страйд и смещение
+
 @property (nonatomic, readonly) GLuint vao;
 @property (nonatomic, strong, readonly) NSArray *buffers;
 

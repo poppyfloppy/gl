@@ -35,6 +35,7 @@
     return self;
 }
 
+
 - (void)addBuffer:(Buffer *)buffer atIndex:(GLint)index {
     [m_buffers addObject:[NSNumber numberWithInt:buffer.vbo]];
     [self bind];

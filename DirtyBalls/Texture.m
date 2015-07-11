@@ -48,9 +48,11 @@
     GLsizei height = *h;
     GLubyte *data = (GLubyte *)calloc(width * height * 4, sizeof(GLubyte));
     CGContextRef context = CGBitmapContextCreate(data, width, height, 8, width * 4, CGImageGetColorSpace(cgImage), (CGBitmapInfo)kCGImageAlphaPremultipliedLast);
+    CGAffineTransform flipVertical = CGAffineTransformMake(1, 0, 0, -1, 0, height);
+    CGContextConcatCTM(context, flipVertical);
     CGContextDrawImage(context, CGRectMake(0, 0, width, height), cgImage);
     CGContextRelease(context);
-
+    
     GLuint texture;
     glGenTextures(1, &texture);
     glBindTexture(GL_TEXTURE_2D, texture);

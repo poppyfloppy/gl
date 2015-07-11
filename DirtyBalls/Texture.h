@@ -10,6 +10,8 @@
 #import <GLKit/GLKit.h>
 #import <OpenGLES/ES3/glext.h>
 
+
+//Добавить второй тип массив текстур для поддержки спрайт-анимации
 @interface Texture : NSObject {
     
 }

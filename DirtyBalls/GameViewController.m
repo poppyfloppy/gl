@@ -62,7 +62,7 @@
     float height = [UIScreen mainScreen].bounds.size.height/ 10 - gap * (count - 1);
     float spriteWidth = width / count;
     float spriteHeight = height / count;
-    Texture *texture = [[Texture alloc] initWith:@"crate.jpg"];
+    Texture *texture = [[Texture alloc] initWith:@"corn.png"];
     for (int i = 0; i < count; i++) {
         for (int j = 0; j < count; j++) {
 //            RenderableObject *object = [[RenderableObject alloc] initWithPosition:GLKVector3Make((spriteWidth + gap) * i, (spriteHeight + gap) * j, 0) size:CGSizeMake(spriteWidth, spriteHeight) andColor:GLKVector4Make(0.0, 1.0, 1.0, 1.0)];
