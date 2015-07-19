@@ -29,9 +29,9 @@
 @property (nonatomic, strong) Buffer *texture3Buffer;
 @property (nonatomic, strong) IndexBuffer *indexBuffer;
 
-- (instancetype)initWith:(GLfloat *)position andColor:(GLfloat *)color andIndices:(GLushort *)indices;
-- (instancetype)initWith:(GLfloat *)position andTexure1:(GLfloat *)texture1 andIndices:(GLushort *)indices;
-- (instancetype)initWith:(GLfloat *)position andTexure1:(GLfloat *)texture1 andTexure2:(GLfloat *)texture2 andIndices:(GLushort *)indices;
-- (instancetype)initWith:(GLfloat *)position andTexure1:(GLfloat *)texture1 andTexure2:(GLfloat *)texture2 andTexure3:(GLfloat *)texture3 andIndices:(GLushort *)indices;
+- (instancetype)initWith:(GLfloat *)position andCount:(size_t)count1 andColor:(GLfloat *)color andCount:(size_t)count2 andIndices:(GLushort *)indices andCount:(size_t)count3;
+- (instancetype)initWith:(GLfloat *)position andCount:(size_t)count1 andTexure1:(GLfloat *)texture1 andCount:(size_t)count2 andIndices:(GLushort *)indices andCount:(size_t)count3;
+- (instancetype)initWith:(GLfloat *)position andCount:(size_t)count1 andTexure1:(GLfloat *)texture1 andCount:(size_t)count2 andTexure2:(GLfloat *)texture2 andCount:(size_t)count3 andIndices:(GLushort *)indices andCount:(size_t)count4;
+- (instancetype)initWith:(GLfloat *)position andCount:(size_t)count1 andTexure1:(GLfloat *)texture1 andCount:(size_t)count2 andTexure2:(GLfloat *)texture2 andCount:(size_t)count3 andTexure3:(GLfloat *)texture3 andCount:(size_t)count4 andIndices:(GLushort *)indices andCount:(size_t)count5;
 
 @end

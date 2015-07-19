@@ -32,18 +32,18 @@
 - (void)flush {
     for (int i = 0; i < m_renderQue.count; i++) {
         RenderableObject *object = [m_renderQue objectAtIndex:i];
-        glActiveTexture(GL_TEXTURE0);
-        [object.texture bind];
-        [object.arrayBuffer bind];
-        [object.indexBuffer bind];
+//        glActiveTexture(GL_TEXTURE0);
+//        [object.texture bind];
+        [object.mesh.vao bind];
+        [object.mesh.indexBuffer bind];
         [object.shader activateProgram];
-        glUniformMatrix4fv([object.shader getUniformLocation:@"modelViewMatrix"], 1, 0, GLKMatrix4MakeTranslation(object.position.x, object.position.y, object.position.z).m);
-        glUniform1i([object.shader getUniformLocation:@"textureSampler"], 0);
-        glDrawElements(GL_TRIANGLES, object.vertexBuffer.count, GL_UNSIGNED_SHORT, NULL);
+        glUniformMatrix4fv([object.shader getUniformLocation:@"modelViewMatrix"], 1, 0, GLKMatrix4Identity.m);
+//        glUniform1i([object.shader getUniformLocation:@"textureSampler"], 0);
+        glDrawElements(GL_TRIANGLES, object.mesh.positionBuffer.count, GL_UNSIGNED_SHORT, NULL);
         [object.shader disableProgram];
-        [object.indexBuffer unbind];
-        [object.arrayBuffer unbind];
-        [object.texture unbind];
+        [object.mesh.vao unbind];
+        [object.mesh.indexBuffer unbind];
+//        [object.texture unbind];
     }
 }
     

@@ -21,8 +21,6 @@
 		3C2C691F1B38480F00EC2ACF /* crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C2C691E1B38480F00EC2ACF /* crate.jpg */; };
 		3C6521971B0AAA6900AAA7A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521961B0AAA6900AAA7A3 /* main.m */; };
 		3C65219A1B0AAA6900AAA7A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521991B0AAA6900AAA7A3 /* AppDelegate.m */; };
-		3C65219C1B0AAA6900AAA7A3 /* Shader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = 3C65219B1B0AAA6900AAA7A3 /* Shader.fsh */; };
-		3C65219E1B0AAA6900AAA7A3 /* Shader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = 3C65219D1B0AAA6900AAA7A3 /* Shader.vsh */; };
 		3C6521A11B0AAA6900AAA7A3 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521A01B0AAA6900AAA7A3 /* GameViewController.m */; };
 		3C6521A41B0AAA6900AAA7A3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3C6521A21B0AAA6900AAA7A3 /* Main.storyboard */; };
 		3C6521A61B0AAA6900AAA7A3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3C6521A51B0AAA6900AAA7A3 /* Images.xcassets */; };
@@ -34,6 +32,8 @@
 		3C7A725D1B4B484100C1FEB2 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C7A725C1B4B484100C1FEB2 /* fish.png */; };
 		3C7A72601B4BEEE000C1FEB2 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A725F1B4BEEE000C1FEB2 /* Sprite.m */; };
 		FB0A3B911B5BE82700394F62 /* Mesh2d.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A3B901B5BE82700394F62 /* Mesh2d.m */; };
+		FB0A3B941B5BF41100394F62 /* SkyShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FB0A3B921B5BF41100394F62 /* SkyShader.fsh */; };
+		FB0A3B951B5BF41100394F62 /* SkyShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FB0A3B931B5BF41100394F62 /* SkyShader.vsh */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,8 +73,6 @@
 		3C6521961B0AAA6900AAA7A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3C6521981B0AAA6900AAA7A3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3C6521991B0AAA6900AAA7A3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3C65219B1B0AAA6900AAA7A3 /* Shader.fsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.fsh; path = Shaders/Shader.fsh; sourceTree = "<group>"; };
-		3C65219D1B0AAA6900AAA7A3 /* Shader.vsh */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; name = Shader.vsh; path = Shaders/Shader.vsh; sourceTree = "<group>"; };
 		3C65219F1B0AAA6900AAA7A3 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
 		3C6521A01B0AAA6900AAA7A3 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
 		3C6521A31B0AAA6900AAA7A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -93,6 +91,8 @@
 		3C7A725F1B4BEEE000C1FEB2 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 		FB0A3B8F1B5BE82700394F62 /* Mesh2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh2d.h; sourceTree = "<group>"; };
 		FB0A3B901B5BE82700394F62 /* Mesh2d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mesh2d.m; sourceTree = "<group>"; };
+		FB0A3B921B5BF41100394F62 /* SkyShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SkyShader.fsh; sourceTree = "<group>"; };
+		FB0A3B931B5BF41100394F62 /* SkyShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SkyShader.vsh; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,10 +116,12 @@
 		3C0C6B331B29DFEB00EB3BD7 /* Shaders */ = {
 			isa = PBXGroup;
 			children = (
+				3C7A33A41B10043000159E36 /* ShaderProgram.h */,
+				3C7A33A51B10043000159E36 /* ShaderProgram.m */,
 				3C0C6B311B28935B00EB3BD7 /* 2dLight.fsh */,
 				3C0C6B2F1B28934400EB3BD7 /* 2dLight.vsh */,
-				3C65219B1B0AAA6900AAA7A3 /* Shader.fsh */,
-				3C65219D1B0AAA6900AAA7A3 /* Shader.vsh */,
+				FB0A3B921B5BF41100394F62 /* SkyShader.fsh */,
+				FB0A3B931B5BF41100394F62 /* SkyShader.vsh */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -197,8 +199,6 @@
 				3C6521A51B0AAA6900AAA7A3 /* Images.xcassets */,
 				3C6521A71B0AAA6900AAA7A3 /* LaunchScreen.xib */,
 				3C6521941B0AAA6900AAA7A3 /* Supporting Files */,
-				3C7A33A41B10043000159E36 /* ShaderProgram.h */,
-				3C7A33A51B10043000159E36 /* ShaderProgram.m */,
 			);
 			path = DirtyBalls;
 			sourceTree = "<group>";
@@ -310,14 +310,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C7A725B1B4B46D200C1FEB2 /* corn2.png in Resources */,
+				FB0A3B951B5BF41100394F62 /* SkyShader.vsh in Resources */,
 				3C0C6B301B28934400EB3BD7 /* 2dLight.vsh in Resources */,
 				3C0C6B321B28935B00EB3BD7 /* 2dLight.fsh in Resources */,
 				3C7A72551B4B447E00C1FEB2 /* corn.png in Resources */,
+				FB0A3B941B5BF41100394F62 /* SkyShader.fsh in Resources */,
 				3C6521A91B0AAA6900AAA7A3 /* LaunchScreen.xib in Resources */,
 				3C6521A41B0AAA6900AAA7A3 /* Main.storyboard in Resources */,
 				3C6521A61B0AAA6900AAA7A3 /* Images.xcassets in Resources */,
-				3C65219E1B0AAA6900AAA7A3 /* Shader.vsh in Resources */,
-				3C65219C1B0AAA6900AAA7A3 /* Shader.fsh in Resources */,
 				3C7A725D1B4B484100C1FEB2 /* fish.png in Resources */,
 				3C2C691F1B38480F00EC2ACF /* crate.jpg in Resources */,
 			);

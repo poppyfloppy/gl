@@ -45,6 +45,14 @@
 }
 
 #pragma mark init
+- (instancetype)initWithMesh:(Mesh2d *)mesh {
+    if (self = [super init]) {
+        self.mesh = mesh;
+    }
+    
+    return self;
+}
+
 - (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andColor:(GLKVector4)color {
     if (self = [super init]) {
         m_Position = position;

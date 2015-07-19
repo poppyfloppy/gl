@@ -22,7 +22,7 @@
 //Шейдер не нужен? Перенести его в Layer?
 //Position и Size перенести в наследника Sprite?
 
-
+@property (nonatomic, strong) Mesh2d *mesh;
 @property (nonatomic, strong) ShaderProgram *shader;
 @property (nonatomic) GLKVector3 position;
 @property (nonatomic, readonly) CGSize size;
@@ -38,6 +38,7 @@
 
 - (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andColor:(GLKVector4)color;
 - (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andTexture:(Texture *)texture;
+- (instancetype)initWithMesh:(Mesh2d *)mesh;
 - (void)initBuffers;
 
 @end

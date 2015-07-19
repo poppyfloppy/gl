@@ -19,6 +19,7 @@
 
 @interface GameViewController () {
     ShaderProgram *program;
+    ShaderProgram *skyShader;
     FirstRender2d *render;
     BatchRender2d *render2;
     Layer *layer;
@@ -53,29 +54,40 @@
 - (void)setupGL {
     [EAGLContext setCurrentContext:self.context];
     program = [[ShaderProgram alloc] initWithVShader:@"2dLight.vsh" andFShader:@"2dLight.fsh"];
+    skyShader = [[ShaderProgram alloc] initWithVShader:@"SkyShader.vsh" andFShader:@"SkyShader.fsh"];
+    
     glEnable(GL_DEPTH_TEST);
     GLKMatrix4 projectionMatrix = GLKMatrix4MakeOrtho(0, [UIScreen mainScreen].bounds.size.width / 10, 0, [UIScreen mainScreen].bounds.size.height/ 10, -10, 10);
     sprites = [NSMutableArray new];
-    float gap = 0.2;
-    int count = 5;
-    float width = [UIScreen mainScreen].bounds.size.width / 10 - gap * (count - 1);
-    float height = [UIScreen mainScreen].bounds.size.height/ 10 - gap * (count - 1);
-    float spriteWidth = width / count;
-    float spriteHeight = height / count;
-    Texture *texture = [[Texture alloc] initWith:@"corn.png"];
-    for (int i = 0; i < count; i++) {
-        for (int j = 0; j < count; j++) {
-//            RenderableObject *object = [[RenderableObject alloc] initWithPosition:GLKVector3Make((spriteWidth + gap) * i, (spriteHeight + gap) * j, 0) size:CGSizeMake(spriteWidth, spriteHeight) andColor:GLKVector4Make(0.0, 1.0, 1.0, 1.0)];
-            RenderableObject *object = [[RenderableObject alloc] initWithPosition:GLKVector3Make((spriteWidth + gap) * i, (spriteHeight + gap) * j, 0) size:CGSizeMake(spriteWidth, spriteHeight) andTexture:texture];
-            [object initBuffers];
-            [object setShader:program];
-            [sprites addObject:object];
-        }
-    }
+    
+    
+    GLfloat data1[] = {
+        0, 0, 0,
+        0, 10, 0,
+        10, 10, 0,
+        10, 0, 0,
+    };
+    
+    GLfloat data2[] = {
+        1.0, 1.0, 0.0, 1.0,
+        1.0, 1.0, 0.0, 1.0,
+        1.0, 1.0, 0.0, 1.0,
+        1.0, 1.0, 0.0, 1.0,
+    };
+    
+    GLushort data3[] = {
+        0, 1, 2,
+        2, 3, 0
+    };
+    Mesh2d *mesh = [[Mesh2d alloc] initWith:data1 andCount:3 * 4 andColor:data2 andCount:4 * 4 andIndices:data3 andCount:3 * 2];
+    RenderableObject *sky = [[RenderableObject new] initWithMesh:mesh];
+    [sky setShader:skyShader];
+    
+    [sprites addObject:sky];
+    
     render = [FirstRender2d new];
-    render2 = [BatchRender2d new];
     layer = [Layer new];
-    [layer setShader:program];
+    [layer setShader:skyShader];
     [layer setProjectionMatrix:projectionMatrix];
     [layer setRenderer:render];
     for (int i = 0; i < sprites.count; i++) {
