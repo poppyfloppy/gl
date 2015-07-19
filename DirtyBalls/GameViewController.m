@@ -112,6 +112,8 @@
 
 #pragma mark - GLKView and GLKViewController delegate methods
 - (void)update {
+    NSLog(@"fps: %f", 1 / self.timeSinceLastUpdate);
+    
     float width = [UIScreen mainScreen].bounds.size.width / 10;
     float height = [UIScreen mainScreen].bounds.size.height/ 10;
     pos = GLKVector2Make(pos.x + width / 300.0f, pos.y + height / 300.0f);
