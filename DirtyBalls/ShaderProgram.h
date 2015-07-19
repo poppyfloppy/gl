@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <GLKit/GLKit.h>
 #import <OpenGLES/ES3/glext.h>
 
 @interface ShaderProgram : NSObject {
@@ -25,5 +26,11 @@
 - (void)disableProgram;
 - (void)deleteProgram;
 - (GLuint)getUniformLocation:(NSString *)name;
+
+- (void)setUniform1i:(NSString *)name :(GLint)i;
+- (void)setUniformMat4:(NSString *)name :(GLKMatrix4)m;
+- (void)setUniformMat3:(NSString *)name :(GLKMatrix3)m;
+- (void)setUniformVec4:(NSString *)name :(GLKVector4)v;
+- (void)setUniformVec3:(NSString *)name :(GLKVector3)v;
 
 @end

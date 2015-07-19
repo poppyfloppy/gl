@@ -163,9 +163,30 @@
     glUseProgram(0);
 }
 
+#pragma mark установка uniform - переменных
 - (GLuint)getUniformLocation:(NSString *)name {
     GLuint location = glGetUniformLocation(program, [name cStringUsingEncoding:NSUTF8StringEncoding]);
     return location;
+}
+
+- (void)setUniform1i:(NSString *)name :(GLint)i {
+    glUniform1i([self getUniformLocation:name], i);
+}
+
+- (void)setUniformMat4:(NSString *)name :(GLKMatrix4)m {
+    glUniformMatrix4fv([self getUniformLocation:name], 1, GL_FALSE, m.m);
+}
+
+- (void)setUniformMat3:(NSString *)name :(GLKMatrix3)m {
+    glUniformMatrix3fv([self getUniformLocation:name], 1, GL_FALSE, m.m);
+}
+
+- (void)setUniformVec4:(NSString *)name :(GLKVector4)v {
+    glUniform4fv([self getUniformLocation:name], 1, v.v);
+}
+
+- (void)setUniformVec3:(NSString *)name :(GLKVector3)v {
+    glUniform3fv([self getUniformLocation:name], 1, v.v);
 }
 
 @end

@@ -13,6 +13,7 @@
 #import "IndexBuffer.h"
 #import "ShaderProgram.h"
 #import "Texture.h"
+#import "Mesh2d.h"
 
 @interface RenderableObject : NSObject {
     
