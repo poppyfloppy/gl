@@ -12,6 +12,7 @@
 #import "Buffer.h"
 #import "IndexBuffer.h"
 #import "ShaderProgram.h"
+#import "StaticShader.h"
 #import "Texture.h"
 #import "Mesh2d.h"
 
@@ -20,25 +21,16 @@
 }
 
 //Шейдер не нужен? Перенести его в Layer?
-//Position и Size перенести в наследника Sprite?
-
 @property (nonatomic, strong) Mesh2d *mesh;
-@property (nonatomic, strong) ShaderProgram *shader;
-@property (nonatomic) GLKVector3 position;
-@property (nonatomic, readonly) CGSize size;
-@property (nonatomic) GLKVector4 color;
+@property (nonatomic, strong) StaticShader *shader;
+@property (nonatomic) GLfloat *color;
+@property (nonatomic, strong) Texture *texture1;
+@property (nonatomic, strong) Texture *texture2;
+@property (nonatomic, strong) Texture *texture3;
 
-@property (nonatomic, strong) ArrayBuffer *arrayBuffer;
-@property (nonatomic, strong) Buffer *vertexBuffer;
-@property (nonatomic, strong) Buffer *colorBuffer;
-@property (nonatomic, strong) IndexBuffer *indexBuffer;
-//Текстура в будущем
-@property (nonatomic, strong) Texture *texture;
-@property (nonatomic, strong) Buffer *textureBuffer;
+@property (nonatomic) GLKMatrix4 modelViewMatrix;
+@property (nonatomic) GLKMatrix4 projectionMatrix;
 
-- (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andColor:(GLKVector4)color;
-- (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andTexture:(Texture *)texture;
 - (instancetype)initWithMesh:(Mesh2d *)mesh;
-- (void)initBuffers;
 
 @end

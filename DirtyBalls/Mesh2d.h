@@ -34,4 +34,12 @@
 - (instancetype)initWith:(GLfloat *)position andCount:(size_t)count1 andTexure1:(GLfloat *)texture1 andCount:(size_t)count2 andTexure2:(GLfloat *)texture2 andCount:(size_t)count3 andIndices:(GLushort *)indices andCount:(size_t)count4;
 - (instancetype)initWith:(GLfloat *)position andCount:(size_t)count1 andTexure1:(GLfloat *)texture1 andCount:(size_t)count2 andTexure2:(GLfloat *)texture2 andCount:(size_t)count3 andTexure3:(GLfloat *)texture3 andCount:(size_t)count4 andIndices:(GLushort *)indices andCount:(size_t)count5;
 
+- (void)initPositionBuffer:(GLfloat *)position count:(size_t)count;
+- (void)initColorBuffer:(GLfloat *)color count:(size_t)count;
+- (void)initTexture1Buffer:(GLfloat *)texture1 count:(size_t)count;
+- (void)initTexture2Buffer:(GLfloat *)texture2 count:(size_t)count;
+- (void)initTexture3Buffer:(GLfloat *)texture3 count:(size_t)count;
+- (void)initIndexBuffer:(GLushort *)indices count:(size_t)count;
+//- (void)initVao;
+
 @end

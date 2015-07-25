@@ -79,23 +79,23 @@
 }
 
 - (void)submit:(RenderableObject *)object {
-    spritesInBuffer++;
-    buffer->position = object.position;
-    buffer->color = object.color;
-    buffer->texture = GLKVector2Make(0.0, 0.0);
-    buffer++;
-    buffer->position = GLKVector3Make(object.position.x, object.position.y + object.size.height, object.position.z);
-    buffer->color = object.color;
-    buffer->texture = GLKVector2Make(0.0, 1.0);
-    buffer++;
-    buffer->position = GLKVector3Make(object.position.x + object.size.width, object.position.y + object.size.height, object.position.z);
-    buffer->color = object.color;
-    buffer->texture = GLKVector2Make(1.0, 1.0);
-    buffer++;
-    buffer->position = GLKVector3Make(object.position.x + object.size.width, object.position.y, object.position.z);
-    buffer->color = object.color;
-    buffer->texture = GLKVector2Make(1.0, 0.0);
-    buffer++;
+//    spritesInBuffer++;
+//    buffer->position = object.position;
+//    buffer->color = object.color;
+//    buffer->texture = GLKVector2Make(0.0, 0.0);
+//    buffer++;
+//    buffer->position = GLKVector3Make(object.position.x, object.position.y + object.size.height, object.position.z);
+//    buffer->color = object.color;
+//    buffer->texture = GLKVector2Make(0.0, 1.0);
+//    buffer++;
+//    buffer->position = GLKVector3Make(object.position.x + object.size.width, object.position.y + object.size.height, object.position.z);
+//    buffer->color = object.color;
+//    buffer->texture = GLKVector2Make(1.0, 1.0);
+//    buffer++;
+//    buffer->position = GLKVector3Make(object.position.x + object.size.width, object.position.y, object.position.z);
+//    buffer->color = object.color;
+//    buffer->texture = GLKVector2Make(1.0, 0.0);
+//    buffer++;
 }
 
 - (void)flush {

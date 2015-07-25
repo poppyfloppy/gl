@@ -18,7 +18,6 @@
 		3C0C6B501B2F8CAA00EB3BD7 /* BatchRender2d.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C0C6B4F1B2F8CAA00EB3BD7 /* BatchRender2d.m */; };
 		3C2C69191B377E6100EC2ACF /* Layer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C69181B377E6100EC2ACF /* Layer.m */; };
 		3C2C691C1B383F6D00EC2ACF /* Texture.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C2C691B1B383F6D00EC2ACF /* Texture.m */; };
-		3C2C691F1B38480F00EC2ACF /* crate.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 3C2C691E1B38480F00EC2ACF /* crate.jpg */; };
 		3C6521971B0AAA6900AAA7A3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521961B0AAA6900AAA7A3 /* main.m */; };
 		3C65219A1B0AAA6900AAA7A3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521991B0AAA6900AAA7A3 /* AppDelegate.m */; };
 		3C6521A11B0AAA6900AAA7A3 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521A01B0AAA6900AAA7A3 /* GameViewController.m */; };
@@ -27,13 +26,22 @@
 		3C6521A91B0AAA6900AAA7A3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3C6521A71B0AAA6900AAA7A3 /* LaunchScreen.xib */; };
 		3C6521B51B0AAA6900AAA7A3 /* DirtyBallsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C6521B41B0AAA6900AAA7A3 /* DirtyBallsTests.m */; };
 		3C7A33A61B10043000159E36 /* ShaderProgram.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A33A51B10043000159E36 /* ShaderProgram.m */; };
-		3C7A72551B4B447E00C1FEB2 /* corn.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C7A72541B4B447E00C1FEB2 /* corn.png */; };
-		3C7A725B1B4B46D200C1FEB2 /* corn2.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C7A725A1B4B46D200C1FEB2 /* corn2.png */; };
-		3C7A725D1B4B484100C1FEB2 /* fish.png in Resources */ = {isa = PBXBuildFile; fileRef = 3C7A725C1B4B484100C1FEB2 /* fish.png */; };
 		3C7A72601B4BEEE000C1FEB2 /* Sprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C7A725F1B4BEEE000C1FEB2 /* Sprite.m */; };
 		FB0A3B911B5BE82700394F62 /* Mesh2d.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A3B901B5BE82700394F62 /* Mesh2d.m */; };
 		FB0A3B941B5BF41100394F62 /* SkyShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FB0A3B921B5BF41100394F62 /* SkyShader.fsh */; };
 		FB0A3B951B5BF41100394F62 /* SkyShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FB0A3B931B5BF41100394F62 /* SkyShader.vsh */; };
+		FB0A3B981B5C27A200394F62 /* StaticShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A3B971B5C27A200394F62 /* StaticShader.m */; };
+		FBE1BC661B61C02300CAC898 /* Cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC5E1B61C02300CAC898 /* Cloud1.png */; };
+		FBE1BC671B61C02300CAC898 /* Cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC5F1B61C02300CAC898 /* Cloud2.png */; };
+		FBE1BC681B61C02300CAC898 /* Cloud3.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC601B61C02300CAC898 /* Cloud3.png */; };
+		FBE1BC691B61C02300CAC898 /* corn.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC611B61C02300CAC898 /* corn.png */; };
+		FBE1BC6A1B61C02300CAC898 /* corn2.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC621B61C02300CAC898 /* corn2.png */; };
+		FBE1BC6B1B61C02300CAC898 /* corn3.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC631B61C02300CAC898 /* corn3.png */; };
+		FBE1BC6C1B61C02300CAC898 /* grass_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC641B61C02300CAC898 /* grass_2x.png */; };
+		FBE1BC6D1B61C02300CAC898 /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC651B61C02300CAC898 /* sky.png */; };
+		FBE1BC711B61C08F00CAC898 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE1BC701B61C08F00CAC898 /* Game.m */; };
+		FBE1BC751B61C5B200CAC898 /* Sky.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE1BC741B61C5B200CAC898 /* Sky.m */; };
+		FBE1BC781B63CB0400CAC898 /* Projection.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE1BC771B63CB0400CAC898 /* Projection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,7 +75,6 @@
 		3C2C69181B377E6100EC2ACF /* Layer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Layer.m; sourceTree = "<group>"; };
 		3C2C691A1B383F6D00EC2ACF /* Texture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Texture.h; sourceTree = "<group>"; };
 		3C2C691B1B383F6D00EC2ACF /* Texture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Texture.m; sourceTree = "<group>"; };
-		3C2C691E1B38480F00EC2ACF /* crate.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = crate.jpg; sourceTree = "<group>"; };
 		3C6521911B0AAA6900AAA7A3 /* DirtyBalls.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DirtyBalls.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C6521951B0AAA6900AAA7A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3C6521961B0AAA6900AAA7A3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -84,15 +91,28 @@
 		3C7A33A41B10043000159E36 /* ShaderProgram.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShaderProgram.h; sourceTree = "<group>"; };
 		3C7A33A51B10043000159E36 /* ShaderProgram.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShaderProgram.m; sourceTree = "<group>"; };
 		3C7A33AA1B12458B00159E36 /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Vertex.h; sourceTree = "<group>"; };
-		3C7A72541B4B447E00C1FEB2 /* corn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corn.png; sourceTree = "<group>"; };
-		3C7A725A1B4B46D200C1FEB2 /* corn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corn2.png; sourceTree = "<group>"; };
-		3C7A725C1B4B484100C1FEB2 /* fish.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = fish.png; sourceTree = "<group>"; };
 		3C7A725E1B4BEEE000C1FEB2 /* Sprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sprite.h; sourceTree = "<group>"; };
 		3C7A725F1B4BEEE000C1FEB2 /* Sprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sprite.m; sourceTree = "<group>"; };
 		FB0A3B8F1B5BE82700394F62 /* Mesh2d.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mesh2d.h; sourceTree = "<group>"; };
 		FB0A3B901B5BE82700394F62 /* Mesh2d.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mesh2d.m; sourceTree = "<group>"; };
 		FB0A3B921B5BF41100394F62 /* SkyShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SkyShader.fsh; sourceTree = "<group>"; };
 		FB0A3B931B5BF41100394F62 /* SkyShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SkyShader.vsh; sourceTree = "<group>"; };
+		FB0A3B961B5C27A200394F62 /* StaticShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticShader.h; sourceTree = "<group>"; };
+		FB0A3B971B5C27A200394F62 /* StaticShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticShader.m; sourceTree = "<group>"; };
+		FBE1BC5E1B61C02300CAC898 /* Cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud1.png; sourceTree = "<group>"; };
+		FBE1BC5F1B61C02300CAC898 /* Cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud2.png; sourceTree = "<group>"; };
+		FBE1BC601B61C02300CAC898 /* Cloud3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud3.png; sourceTree = "<group>"; };
+		FBE1BC611B61C02300CAC898 /* corn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corn.png; sourceTree = "<group>"; };
+		FBE1BC621B61C02300CAC898 /* corn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corn2.png; sourceTree = "<group>"; };
+		FBE1BC631B61C02300CAC898 /* corn3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corn3.png; sourceTree = "<group>"; };
+		FBE1BC641B61C02300CAC898 /* grass_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_2x.png; sourceTree = "<group>"; };
+		FBE1BC651B61C02300CAC898 /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
+		FBE1BC6F1B61C08F00CAC898 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
+		FBE1BC701B61C08F00CAC898 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
+		FBE1BC731B61C5B200CAC898 /* Sky.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sky.h; sourceTree = "<group>"; };
+		FBE1BC741B61C5B200CAC898 /* Sky.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sky.m; sourceTree = "<group>"; };
+		FBE1BC761B63CB0400CAC898 /* Projection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Projection.h; sourceTree = "<group>"; };
+		FBE1BC771B63CB0400CAC898 /* Projection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Projection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,6 +142,8 @@
 				3C0C6B2F1B28934400EB3BD7 /* 2dLight.vsh */,
 				FB0A3B921B5BF41100394F62 /* SkyShader.fsh */,
 				FB0A3B931B5BF41100394F62 /* SkyShader.vsh */,
+				FB0A3B961B5C27A200394F62 /* StaticShader.h */,
+				FB0A3B971B5C27A200394F62 /* StaticShader.m */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -129,20 +151,15 @@
 		3C0C6B341B29E00500EB3BD7 /* Renderer */ = {
 			isa = PBXGroup;
 			children = (
-				3C0C6B351B29E01E00EB3BD7 /* ArrayBuffer.h */,
-				3C0C6B361B29E01E00EB3BD7 /* ArrayBuffer.m */,
-				3C0C6B381B2AE2B200EB3BD7 /* Buffer.h */,
-				3C0C6B391B2AE2B200EB3BD7 /* Buffer.m */,
-				3C0C6B3E1B2AE62300EB3BD7 /* IndexBuffer.h */,
-				3C0C6B3F1B2AE62300EB3BD7 /* IndexBuffer.m */,
+				FB0A3B991B5C283700394F62 /* Buffer */,
 				3C0C6B411B2B224400EB3BD7 /* Render2d.h */,
 				3C0C6B421B2B224400EB3BD7 /* Render2d.m */,
-				3C0C6B471B2B22C700EB3BD7 /* RenderableObject.h */,
-				3C0C6B481B2B22C700EB3BD7 /* RenderableObject.m */,
 				3C0C6B4A1B2B409800EB3BD7 /* FirstRender2d.h */,
 				3C0C6B4B1B2B409800EB3BD7 /* FirstRender2d.m */,
 				3C0C6B4E1B2F8CAA00EB3BD7 /* BatchRender2d.h */,
 				3C0C6B4F1B2F8CAA00EB3BD7 /* BatchRender2d.m */,
+				3C0C6B471B2B22C700EB3BD7 /* RenderableObject.h */,
+				3C0C6B481B2B22C700EB3BD7 /* RenderableObject.m */,
 				3C7A33AA1B12458B00159E36 /* Vertex.h */,
 				3C2C69171B377E6100EC2ACF /* Layer.h */,
 				3C2C69181B377E6100EC2ACF /* Layer.m */,
@@ -152,6 +169,8 @@
 				3C7A725F1B4BEEE000C1FEB2 /* Sprite.m */,
 				FB0A3B8F1B5BE82700394F62 /* Mesh2d.h */,
 				FB0A3B901B5BE82700394F62 /* Mesh2d.m */,
+				FBE1BC761B63CB0400CAC898 /* Projection.h */,
+				FBE1BC771B63CB0400CAC898 /* Projection.m */,
 			);
 			name = Renderer;
 			sourceTree = "<group>";
@@ -159,10 +178,14 @@
 		3C2C691D1B3847DE00EC2ACF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3C7A725C1B4B484100C1FEB2 /* fish.png */,
-				3C7A725A1B4B46D200C1FEB2 /* corn2.png */,
-				3C7A72541B4B447E00C1FEB2 /* corn.png */,
-				3C2C691E1B38480F00EC2ACF /* crate.jpg */,
+				FBE1BC5E1B61C02300CAC898 /* Cloud1.png */,
+				FBE1BC5F1B61C02300CAC898 /* Cloud2.png */,
+				FBE1BC601B61C02300CAC898 /* Cloud3.png */,
+				FBE1BC611B61C02300CAC898 /* corn.png */,
+				FBE1BC621B61C02300CAC898 /* corn2.png */,
+				FBE1BC631B61C02300CAC898 /* corn3.png */,
+				FBE1BC641B61C02300CAC898 /* grass_2x.png */,
+				FBE1BC651B61C02300CAC898 /* sky.png */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -188,6 +211,7 @@
 		3C6521931B0AAA6900AAA7A3 /* DirtyBalls */ = {
 			isa = PBXGroup;
 			children = (
+				FBE1BC6E1B61C04B00CAC898 /* Game */,
 				3C2C691D1B3847DE00EC2ACF /* Resources */,
 				3C0C6B341B29E00500EB3BD7 /* Renderer */,
 				3C0C6B331B29DFEB00EB3BD7 /* Shaders */,
@@ -227,6 +251,39 @@
 				3C6521B31B0AAA6900AAA7A3 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB0A3B991B5C283700394F62 /* Buffer */ = {
+			isa = PBXGroup;
+			children = (
+				3C0C6B351B29E01E00EB3BD7 /* ArrayBuffer.h */,
+				3C0C6B361B29E01E00EB3BD7 /* ArrayBuffer.m */,
+				3C0C6B381B2AE2B200EB3BD7 /* Buffer.h */,
+				3C0C6B391B2AE2B200EB3BD7 /* Buffer.m */,
+				3C0C6B3E1B2AE62300EB3BD7 /* IndexBuffer.h */,
+				3C0C6B3F1B2AE62300EB3BD7 /* IndexBuffer.m */,
+			);
+			name = Buffer;
+			sourceTree = "<group>";
+		};
+		FBE1BC6E1B61C04B00CAC898 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				FBE1BC721B61C59F00CAC898 /* Nodes */,
+				FBE1BC6F1B61C08F00CAC898 /* Game.h */,
+				FBE1BC701B61C08F00CAC898 /* Game.m */,
+			);
+			name = Game;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FBE1BC721B61C59F00CAC898 /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				FBE1BC731B61C5B200CAC898 /* Sky.h */,
+				FBE1BC741B61C5B200CAC898 /* Sky.m */,
+			);
+			name = Nodes;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -309,17 +366,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3C7A725B1B4B46D200C1FEB2 /* corn2.png in Resources */,
+				FBE1BC6A1B61C02300CAC898 /* corn2.png in Resources */,
+				FBE1BC691B61C02300CAC898 /* corn.png in Resources */,
+				FBE1BC6C1B61C02300CAC898 /* grass_2x.png in Resources */,
 				FB0A3B951B5BF41100394F62 /* SkyShader.vsh in Resources */,
 				3C0C6B301B28934400EB3BD7 /* 2dLight.vsh in Resources */,
+				FBE1BC6B1B61C02300CAC898 /* corn3.png in Resources */,
+				FBE1BC6D1B61C02300CAC898 /* sky.png in Resources */,
+				FBE1BC661B61C02300CAC898 /* Cloud1.png in Resources */,
 				3C0C6B321B28935B00EB3BD7 /* 2dLight.fsh in Resources */,
-				3C7A72551B4B447E00C1FEB2 /* corn.png in Resources */,
 				FB0A3B941B5BF41100394F62 /* SkyShader.fsh in Resources */,
 				3C6521A91B0AAA6900AAA7A3 /* LaunchScreen.xib in Resources */,
+				FBE1BC671B61C02300CAC898 /* Cloud2.png in Resources */,
 				3C6521A41B0AAA6900AAA7A3 /* Main.storyboard in Resources */,
+				FBE1BC681B61C02300CAC898 /* Cloud3.png in Resources */,
 				3C6521A61B0AAA6900AAA7A3 /* Images.xcassets in Resources */,
-				3C7A725D1B4B484100C1FEB2 /* fish.png in Resources */,
-				3C2C691F1B38480F00EC2ACF /* crate.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,6 +398,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FBE1BC711B61C08F00CAC898 /* Game.m in Sources */,
 				3C0C6B501B2F8CAA00EB3BD7 /* BatchRender2d.m in Sources */,
 				3C0C6B4C1B2B409800EB3BD7 /* FirstRender2d.m in Sources */,
 				3C65219A1B0AAA6900AAA7A3 /* AppDelegate.m in Sources */,
@@ -345,11 +407,14 @@
 				FB0A3B911B5BE82700394F62 /* Mesh2d.m in Sources */,
 				3C0C6B401B2AE62300EB3BD7 /* IndexBuffer.m in Sources */,
 				3C7A33A61B10043000159E36 /* ShaderProgram.m in Sources */,
+				FB0A3B981B5C27A200394F62 /* StaticShader.m in Sources */,
 				3C0C6B431B2B224400EB3BD7 /* Render2d.m in Sources */,
 				3C2C691C1B383F6D00EC2ACF /* Texture.m in Sources */,
+				FBE1BC781B63CB0400CAC898 /* Projection.m in Sources */,
 				3C6521A11B0AAA6900AAA7A3 /* GameViewController.m in Sources */,
 				3C0C6B371B29E01E00EB3BD7 /* ArrayBuffer.m in Sources */,
 				3C0C6B3A1B2AE2B200EB3BD7 /* Buffer.m in Sources */,
+				FBE1BC751B61C5B200CAC898 /* Sky.m in Sources */,
 				3C7A72601B4BEEE000C1FEB2 /* Sprite.m in Sources */,
 				3C6521971B0AAA6900AAA7A3 /* main.m in Sources */,
 			);

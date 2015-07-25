@@ -9,6 +9,7 @@
 #import "GameViewController.h"
 #import <OpenGLES/ES3/glext.h>
 #import "ShaderProgram.h"
+#import "StaticShader.h"
 #import "Buffer.h"
 #import "ArrayBuffer.h"
 #import "RenderableObject.h"
@@ -16,16 +17,23 @@
 #import "BatchRender2d.h"
 #import "Layer.h"
 #import "Texture.h"
+#import "Sprite.h"
+#import "Projection.h"
+
+#import "Game.h"
 
 @interface GameViewController () {
-    ShaderProgram *program;
-    ShaderProgram *skyShader;
+    StaticShader *program;
+    StaticShader *skyShader;
     FirstRender2d *render;
     BatchRender2d *render2;
     Layer *layer;
     NSMutableArray *sprites;
+    Sprite *sky;
+    Sprite *grass;
+    Projection *projection;
     
-    GLKVector2 pos;
+    Game *game;
 }
 
 @property (strong, nonatomic) EAGLContext *context;
@@ -49,50 +57,32 @@
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
     [self setupGL];
+    game = [[Game alloc] init];
 }
 
 - (void)setupGL {
     [EAGLContext setCurrentContext:self.context];
-    program = [[ShaderProgram alloc] initWithVShader:@"2dLight.vsh" andFShader:@"2dLight.fsh"];
-    skyShader = [[ShaderProgram alloc] initWithVShader:@"SkyShader.vsh" andFShader:@"SkyShader.fsh"];
+    program = [[StaticShader alloc] initWithVShader:@"2dLight.vsh" andFShader:@"2dLight.fsh"];
+    skyShader = [[StaticShader alloc] initWithVShader:@"SkyShader.vsh" andFShader:@"SkyShader.fsh"];
     
-    glEnable(GL_DEPTH_TEST);
-    GLKMatrix4 projectionMatrix = GLKMatrix4MakeOrtho(0, [UIScreen mainScreen].bounds.size.width / 10, 0, [UIScreen mainScreen].bounds.size.height/ 10, -10, 10);
-    sprites = [NSMutableArray new];
-    
-    
-    GLfloat data1[] = {
-        0, 0, 0,
-        0, 10, 0,
-        10, 10, 0,
-        10, 0, 0,
+//    glEnable(GL_DEPTH_TEST);
+    projection = [Projection sharedProjection];
+    [projection initOrthoProjectionWidth:[UIScreen mainScreen].bounds.size.width / 10 height:[UIScreen mainScreen].bounds.size.height / 10 depth:20];
+    [skyShader setProjectionMatrix:projection.projectionMatrix];
+    [program setProjectionMatrix:projection.projectionMatrix];
+    GLfloat color[] = {
+        1.0, 1.0, 1.0, 1.0,
+        14 / 255.0, 139 / 255.0, 235 / 255.0, 1.0,
+        14 / 255.0, 139 / 255.0, 235 / 255.0, 1.0,
+        1.0, 1.0, 1.0, 1.0,
     };
-    
-    GLfloat data2[] = {
-        1.0, 1.0, 0.0, 1.0,
-        1.0, 1.0, 0.0, 1.0,
-        1.0, 1.0, 0.0, 1.0,
-        1.0, 1.0, 0.0, 1.0,
-    };
-    
-    GLushort data3[] = {
-        0, 1, 2,
-        2, 3, 0
-    };
-    Mesh2d *mesh = [[Mesh2d alloc] initWith:data1 andCount:3 * 4 andColor:data2 andCount:4 * 4 andIndices:data3 andCount:3 * 2];
-    RenderableObject *sky = [[RenderableObject new] initWithMesh:mesh];
-    [sky setShader:skyShader];
-    
-    [sprites addObject:sky];
+    sky = [[Sprite alloc] initWithPosition:GLKVector3Make(0, 0, 0) size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 10, [UIScreen mainScreen].bounds.size.height/ 10) andColor:color];
+    sky.renderableObject.shader = skyShader;
+    Texture *grassTexture = [[Texture alloc] initWith:@"corn3.png"];
+    grass = [[Sprite alloc] initWithPosition:GLKVector3Make(0, 0, 0) size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 10, [UIScreen mainScreen].bounds.size.height/ 20) andTexture1:grassTexture];
+    grass.renderableObject.shader = program;
     
     render = [FirstRender2d new];
-    layer = [Layer new];
-    [layer setShader:skyShader];
-    [layer setProjectionMatrix:projectionMatrix];
-    [layer setRenderer:render];
-    for (int i = 0; i < sprites.count; i++) {
-        [layer add:sprites[i]];
-    }
 }
 
 #pragma mark dealloc OpenGL
@@ -125,19 +115,17 @@
 #pragma mark - GLKView and GLKViewController delegate methods
 - (void)update {
     NSLog(@"fps: %f", 1 / self.timeSinceLastUpdate);
-    
-    float width = [UIScreen mainScreen].bounds.size.width / 10;
-    float height = [UIScreen mainScreen].bounds.size.height/ 10;
-    pos = GLKVector2Make(pos.x + width / 300.0f, pos.y + height / 300.0f);
-    [program activateProgram];
-    glUniform2f([program getUniformLocation:@"lightPosition"], pos.x, pos.y);
-    [program disableProgram];
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-    glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+    glClearColor(1.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-    [layer render];
+//    [render start];
+//    [render submit:sky.renderableObject];
+//    [render submit:grass.renderableObject];
+//    [render end];
+//    [render flush];
+    [game render];
     NSLog(@"OpenGl error: %d", glGetError());
 }
 
