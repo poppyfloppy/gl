@@ -40,13 +40,17 @@ GLfloat midnight[] = {
 //morning -> midday -> evening -> midnight
 @interface Sky () {
     float currentTime;
-    float currentPeriodTime;
     StaticShader *skyShader;
+    kSkyTime mSkyTime;
 }
 
 @end
 
 @implementation Sky
+
+- (kSkyTime)skyTime {
+    return mSkyTime;
+}
 
 #pragma mark init
 - (instancetype)initWithProjection:(Projection *)projection {
@@ -55,6 +59,7 @@ GLfloat midnight[] = {
         [skyShader setProjectionMatrix:projection.projectionMatrix];
         self.renderableObject.shader = skyShader;
         currentTime = [self getPeriodtime];
+        mSkyTime = kMidday;
     }
 
     return self;
@@ -68,26 +73,27 @@ GLfloat midnight[] = {
 - (void)updateSky:(float)timeSinceLastUpdate {
     //Обновление времени
     currentTime += timeSinceLastUpdate;
-    currentPeriodTime += timeSinceLastUpdate;
     if (currentTime >= DAY_TIME)
         currentTime = 0;
-    if (currentPeriodTime >= [self getPeriodtime])
-        currentPeriodTime = 0;
     //Утро
     if (currentTime < [self getPeriodtime]) {
-        GLfloat *color = [self interpolateColor1:midday color2:morning andK:currentPeriodTime / [self getPeriodtime]];
+        mSkyTime = kMorning;
+        GLfloat *color = [self interpolateColor1:midday color2:morning andK:currentTime / [self getPeriodtime]];
         [self.renderableObject.mesh initColorBuffer:color count:16];
     //День
     } else if (currentTime >= [self getPeriodtime] && currentTime < 2 * [self getPeriodtime]) {
-        GLfloat *color = [self interpolateColor1:evening color2:midday andK:currentPeriodTime / [self getPeriodtime]];
+        mSkyTime = kMidday;
+        GLfloat *color = [self interpolateColor1:evening color2:midday andK:(currentTime - [self getPeriodtime]) / [self getPeriodtime]];
         [self.renderableObject.mesh initColorBuffer:color count:16];
     //Вечер
     } else if (currentTime >= 2 * [self getPeriodtime] && currentTime < 3 * [self getPeriodtime]) {
-        GLfloat *color = [self interpolateColor1:midnight color2:evening andK:currentPeriodTime / [self getPeriodtime]];
+        mSkyTime = kEvening;
+        GLfloat *color = [self interpolateColor1:midnight color2:evening andK:(currentTime - 2 * [self getPeriodtime]) / [self getPeriodtime]];
         [self.renderableObject.mesh initColorBuffer:color count:16];
     //Ночь
     } else if (currentTime >= 3 * [self getPeriodtime] && currentTime < 4 * [self getPeriodtime]) {
-        GLfloat *color = [self interpolateColor1:morning color2:midnight andK:currentPeriodTime / [self getPeriodtime]];
+        mSkyTime = kMidnight;
+        GLfloat *color = [self interpolateColor1:morning color2:midnight andK:(currentTime - 3 * [self getPeriodtime]) / [self getPeriodtime]];
         [[[self renderableObject] mesh] initColorBuffer:color count:16];
     }
 }
@@ -95,13 +101,8 @@ GLfloat midnight[] = {
 - (GLfloat *)interpolateColor1:(GLfloat *)color1 color2:(GLfloat *)color2 andK:(float)k {
     GLfloat *interColor = malloc(sizeof(GLfloat) * 16);
     for (int i = 0; i < 16; i++) {
-//        NSLog(@"color1:%f, color2:%f, k:%f", color1[i], color2[i], k);
         interColor[i] = k * color1[i] + (1 - k) * color2[i];
     }
-    
-//    for (int i = 0; i < 16; i++) {
-//        NSLog(@"intecolor: %f", interColor[i]);
-//    }
     
     return interColor;
 }
