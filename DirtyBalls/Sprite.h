@@ -23,4 +23,8 @@
 - (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andTexture1:(Texture *)texture1 andTexture2:(Texture *)texture2;
 - (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andTexture1:(Texture *)texture1 andTexture2:(Texture *)texture2 andTexture3:(Texture *)texture3;
 
+- (void)move:(GLKVector3)velocity;
+- (void)rotate:(GLKVector3)rotataion;
+- (void)scale:(GLKVector3)scale;
+
 @end

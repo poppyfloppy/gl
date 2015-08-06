@@ -86,6 +86,8 @@
         self.colorBuffer = [Buffer new];
         [self.colorBuffer setData:color count:(GLuint)count perComponent:4];
         [self.vao addBuffer:self.colorBuffer atIndex:COLOR_INDEX];
+    } else {
+        [self.colorBuffer setData:color count:(GLuint)count perComponent:4];
     }
 }
 

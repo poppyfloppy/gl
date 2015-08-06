@@ -36,10 +36,10 @@
 
 - (void)initPositionBuffer:(GLfloat *)position count:(size_t)count;
 - (void)initColorBuffer:(GLfloat *)color count:(size_t)count;
+- (void)initColorBuffer:(GLfloat *)color count:(size_t)count andType:(DRAW_TYPE)type;
 - (void)initTexture1Buffer:(GLfloat *)texture1 count:(size_t)count;
 - (void)initTexture2Buffer:(GLfloat *)texture2 count:(size_t)count;
 - (void)initTexture3Buffer:(GLfloat *)texture3 count:(size_t)count;
 - (void)initIndexBuffer:(GLushort *)indices count:(size_t)count;
-//- (void)initVao;
 
 @end

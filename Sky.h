@@ -8,7 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "Sprite.h"
+#import "Projection.h"
 
-@interface Sky : Sprite
+@interface Sky : Sprite {
+    
+}
+
+- (void)updateSky:(float)timeSinceLastUpdate;
+- (instancetype)initWithProjection:(Projection *)projection;
 
 @end

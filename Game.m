@@ -17,8 +17,15 @@
 @interface Game () {
     Projection *projection;
     FirstRender2d *renderer;
-    Sprite *sky;
+    Sky *sky;
+    Sprite *grass;
+    Sprite *grass2;
     Sprite *corn;
+    Sprite *corn2;
+    Sprite *cloud1;
+    Sprite *cloud2;
+    Sprite *cloud3;
+    Sprite *sun;
 }
 
 @end
@@ -38,6 +45,9 @@
     [self initRenderer];
     [self initSky];
     [self initCorn];
+    [self initGrass];
+    [self initCloud];
+    [self initSun];
 }
 
 - (void)initRenderer {
@@ -45,24 +55,54 @@
 }
 
 - (void)initSky {
-    StaticShader *skyShader = [[StaticShader alloc] initWithVShader:@"SkyShader.vsh" andFShader:@"SkyShader.fsh"];
-    [skyShader setProjectionMatrix:projection.projectionMatrix];
+    sky = [[Sky alloc] initWithProjection:projection];
+}
+
+- (void)initSun {
+    StaticShader *sunShader = [[StaticShader alloc] initWithVShader:@"SunShader.vsh" andFShader:@"SunShader.fsh"];
+    [sunShader setProjectionMatrix:projection.projectionMatrix];
     GLfloat color[] = {
-        1.0, 1.0, 1.0, 1.0,
-        14 / 255.0, 139 / 255.0, 235 / 255.0, 1.0,
-        14 / 255.0, 139 / 255.0, 235 / 255.0, 1.0,
-        1.0, 1.0, 1.0, 1.0,
+        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
+        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
+        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
+        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
     };
-    sky = [[Sprite alloc] initWithPosition:GLKVector3Make(0, 0, 0) size:CGSizeMake(projection.width, projection.height) andColor:color];
-    sky.renderableObject.shader = skyShader;
+    sun = [[Sprite alloc] initWithPosition:GLKVector3Make(0, 0, -10) size:CGSizeMake(projection.width, projection.height) andColor:color];
+    sun.renderableObject.shader = sunShader;
 }
 
 - (void)initCorn {
     StaticShader *cornShader = [[StaticShader alloc] initWithVShader:@"2dLight.vsh" andFShader:@"2dLight.fsh"];
     [cornShader setProjectionMatrix:projection.projectionMatrix];
     Texture *cornTexture = [[Texture alloc] initWith:@"corn3.png"];
-    corn = [[Sprite alloc] initWithPosition:GLKVector3Make(0, 0, 0) size:CGSizeMake([UIScreen mainScreen].bounds.size.width / 10, [UIScreen mainScreen].bounds.size.height/ 20) andTexture1:cornTexture];
+    corn = [[Sprite alloc] initWithPosition:GLKVector3Make(0, 0, 0) size:CGSizeMake(projection.width, projection.height / 2.0) andTexture1:cornTexture];
     corn.renderableObject.shader = cornShader;
+    
+    corn2 = [[Sprite alloc] initWithPosition:GLKVector3Make(projection.width, 0, 0) size:CGSizeMake(projection.width, projection.height / 2.0) andTexture1:cornTexture];
+    corn2.renderableObject.shader = cornShader;
+}
+
+- (void)initGrass {
+    StaticShader *grassShader = [[StaticShader alloc] initWithVShader:@"2dLight.vsh" andFShader:@"2dLight.fsh"];
+    [grassShader setProjectionMatrix:projection.projectionMatrix];
+    Texture *grassTexture = [[Texture alloc] initWith:@"grass.png"];
+    grass = [[Sprite alloc] initWithPosition:GLKVector3Make(0, 0, 0) size:CGSizeMake(projection.width, projection.height / 12.0) andTexture1:grassTexture];
+    grass.renderableObject.shader = grassShader;
+    
+    grass2 = [[Sprite alloc] initWithPosition:GLKVector3Make(projection.width, 0, 0) size:CGSizeMake(projection.width, projection.height / 12.0) andTexture1:grassTexture];
+    grass2.renderableObject.shader = grassShader;
+}
+
+- (void)initCloud {
+    StaticShader *cloudShader = [[StaticShader alloc] initWithVShader:@"2dLight.vsh" andFShader:@"2dLight.fsh"];
+    [cloudShader setProjectionMatrix:projection.projectionMatrix];
+    Texture *cloud1Texture = [[Texture alloc] initWith:@"Cloud1.png"];
+    cloud1 = [[Sprite alloc] initWithPosition:GLKVector3Make(0, projection.height / 2.0, 0) size:CGSizeMake(40, 20) andTexture1:cloud1Texture];
+    cloud1.renderableObject.shader = cloudShader;
+    
+    Texture *cloud2Texture = [[Texture alloc] initWith:@"Cloud2.png"];
+    cloud2 = [[Sprite alloc] initWithPosition:GLKVector3Make(projection.width / 2.0, 2 * projection.height / 3.0, 0) size:CGSizeMake(40, 10) andTexture1:cloud2Texture];
+    cloud2.renderableObject.shader = cloudShader;
 }
 
 #pragma mark game control
@@ -82,14 +122,62 @@
 - (void)render {
     [renderer start];
     [renderer submit:sky.renderableObject];
+    [renderer submit:sun.renderableObject];
     [renderer submit:corn.renderableObject];
+    [renderer submit:corn2.renderableObject];
+    [renderer submit:grass.renderableObject];
+    [renderer submit:grass2.renderableObject];
+    [renderer submit:cloud1.renderableObject];
+    [renderer submit:cloud2.renderableObject];
     [renderer end];
     [renderer flush];
 }
 
 #pragma mark update
 - (void)update:(float)timeSinceLastUpdate {
-    
+    [sky updateSky:timeSinceLastUpdate];
+    [self updateCorn:timeSinceLastUpdate];
+    [self updateCloud:timeSinceLastUpdate];
+    [self updateGrass:timeSinceLastUpdate];
+}
+
+- (void)updateSky:(float)timeSinceLastUpdate {
+    GLfloat color[] = {
+        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
+        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
+        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
+        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
+    };
+    [[[sky renderableObject] mesh] initColorBuffer:color count:16];
+}
+
+- (void)updateCorn:(float)timeSinceLastUpdate {
+    [corn move:GLKVector3Make(-10 * timeSinceLastUpdate, 0, 0)];
+    [corn2 move:GLKVector3Make(-10 * timeSinceLastUpdate, 0, 0)];
+    if (corn.position.x + corn.size.width <= 0)
+        [corn setPosition:GLKVector3Make(corn2.position.x + corn2.size.width, 0, 0)];
+    if (corn2.position.x + corn2.size.width <= 0)
+        [corn2 setPosition:GLKVector3Make(corn.position.x + corn.size.width, 0, 0)];
+}
+
+- (void)updateCloud:(float)timeSinceLastUpdate {
+    [cloud1 move:GLKVector3Make(-5 * timeSinceLastUpdate, 0, 0)];
+    [cloud2 move:GLKVector3Make(-5 * timeSinceLastUpdate, 0, 0)];
+    if (cloud1.position.x + cloud1.size.width <= 0) {
+        [cloud1 setPosition:GLKVector3Make(projection.width, 2 * projection.height / 3.0, 0)];
+    }
+    if (cloud2.position.x + cloud2.size.width <= 0) {
+        [cloud2 setPosition:GLKVector3Make(projection.width, projection.height / 2.0, 0)];
+    }
+}
+
+- (void)updateGrass:(float)timeSinceLastUpdate {
+    [grass move:GLKVector3Make(-30 * timeSinceLastUpdate, 0, 0)];
+    [grass2 move:GLKVector3Make(-30 * timeSinceLastUpdate, 0, 0)];
+    if (grass.position.x + grass.size.width <= 0)
+        [grass setPosition:GLKVector3Make(grass2.position.x + grass2.size.width, 0, 0)];
+    if (grass2.position.x + grass2.size.width <= 0)
+        [grass2 setPosition:GLKVector3Make(grass.position.x + grass.size.width, 0, 0)];
 }
 
 @end

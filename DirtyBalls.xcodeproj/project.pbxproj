@@ -31,13 +31,15 @@
 		FB0A3B941B5BF41100394F62 /* SkyShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FB0A3B921B5BF41100394F62 /* SkyShader.fsh */; };
 		FB0A3B951B5BF41100394F62 /* SkyShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FB0A3B931B5BF41100394F62 /* SkyShader.vsh */; };
 		FB0A3B981B5C27A200394F62 /* StaticShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A3B971B5C27A200394F62 /* StaticShader.m */; };
+		FB20E3951B6854C100FDE62B /* SunShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FB20E3941B6854C100FDE62B /* SunShader.vsh */; };
+		FB20E3991B685DC500FDE62B /* SunShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FB20E3981B685DC500FDE62B /* SunShader.fsh */; };
 		FBE1BC661B61C02300CAC898 /* Cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC5E1B61C02300CAC898 /* Cloud1.png */; };
 		FBE1BC671B61C02300CAC898 /* Cloud2.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC5F1B61C02300CAC898 /* Cloud2.png */; };
 		FBE1BC681B61C02300CAC898 /* Cloud3.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC601B61C02300CAC898 /* Cloud3.png */; };
 		FBE1BC691B61C02300CAC898 /* corn.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC611B61C02300CAC898 /* corn.png */; };
 		FBE1BC6A1B61C02300CAC898 /* corn2.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC621B61C02300CAC898 /* corn2.png */; };
 		FBE1BC6B1B61C02300CAC898 /* corn3.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC631B61C02300CAC898 /* corn3.png */; };
-		FBE1BC6C1B61C02300CAC898 /* grass_2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC641B61C02300CAC898 /* grass_2x.png */; };
+		FBE1BC6C1B61C02300CAC898 /* grass.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC641B61C02300CAC898 /* grass.png */; };
 		FBE1BC6D1B61C02300CAC898 /* sky.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC651B61C02300CAC898 /* sky.png */; };
 		FBE1BC711B61C08F00CAC898 /* Game.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE1BC701B61C08F00CAC898 /* Game.m */; };
 		FBE1BC751B61C5B200CAC898 /* Sky.m in Sources */ = {isa = PBXBuildFile; fileRef = FBE1BC741B61C5B200CAC898 /* Sky.m */; };
@@ -99,13 +101,15 @@
 		FB0A3B931B5BF41100394F62 /* SkyShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SkyShader.vsh; sourceTree = "<group>"; };
 		FB0A3B961B5C27A200394F62 /* StaticShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticShader.h; sourceTree = "<group>"; };
 		FB0A3B971B5C27A200394F62 /* StaticShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticShader.m; sourceTree = "<group>"; };
+		FB20E3941B6854C100FDE62B /* SunShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunShader.vsh; sourceTree = "<group>"; };
+		FB20E3981B685DC500FDE62B /* SunShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunShader.fsh; sourceTree = "<group>"; };
 		FBE1BC5E1B61C02300CAC898 /* Cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud1.png; sourceTree = "<group>"; };
 		FBE1BC5F1B61C02300CAC898 /* Cloud2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud2.png; sourceTree = "<group>"; };
 		FBE1BC601B61C02300CAC898 /* Cloud3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud3.png; sourceTree = "<group>"; };
 		FBE1BC611B61C02300CAC898 /* corn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corn.png; sourceTree = "<group>"; };
 		FBE1BC621B61C02300CAC898 /* corn2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corn2.png; sourceTree = "<group>"; };
 		FBE1BC631B61C02300CAC898 /* corn3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = corn3.png; sourceTree = "<group>"; };
-		FBE1BC641B61C02300CAC898 /* grass_2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass_2x.png; sourceTree = "<group>"; };
+		FBE1BC641B61C02300CAC898 /* grass.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grass.png; sourceTree = "<group>"; };
 		FBE1BC651B61C02300CAC898 /* sky.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = sky.png; sourceTree = "<group>"; };
 		FBE1BC6F1B61C08F00CAC898 /* Game.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Game.h; sourceTree = "<group>"; };
 		FBE1BC701B61C08F00CAC898 /* Game.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Game.m; sourceTree = "<group>"; };
@@ -138,12 +142,14 @@
 			children = (
 				3C7A33A41B10043000159E36 /* ShaderProgram.h */,
 				3C7A33A51B10043000159E36 /* ShaderProgram.m */,
+				FB0A3B961B5C27A200394F62 /* StaticShader.h */,
+				FB0A3B971B5C27A200394F62 /* StaticShader.m */,
+				FB20E3941B6854C100FDE62B /* SunShader.vsh */,
+				FB20E3981B685DC500FDE62B /* SunShader.fsh */,
 				3C0C6B311B28935B00EB3BD7 /* 2dLight.fsh */,
 				3C0C6B2F1B28934400EB3BD7 /* 2dLight.vsh */,
 				FB0A3B921B5BF41100394F62 /* SkyShader.fsh */,
 				FB0A3B931B5BF41100394F62 /* SkyShader.vsh */,
-				FB0A3B961B5C27A200394F62 /* StaticShader.h */,
-				FB0A3B971B5C27A200394F62 /* StaticShader.m */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -184,7 +190,7 @@
 				FBE1BC611B61C02300CAC898 /* corn.png */,
 				FBE1BC621B61C02300CAC898 /* corn2.png */,
 				FBE1BC631B61C02300CAC898 /* corn3.png */,
-				FBE1BC641B61C02300CAC898 /* grass_2x.png */,
+				FBE1BC641B61C02300CAC898 /* grass.png */,
 				FBE1BC651B61C02300CAC898 /* sky.png */,
 			);
 			name = Resources;
@@ -368,13 +374,15 @@
 			files = (
 				FBE1BC6A1B61C02300CAC898 /* corn2.png in Resources */,
 				FBE1BC691B61C02300CAC898 /* corn.png in Resources */,
-				FBE1BC6C1B61C02300CAC898 /* grass_2x.png in Resources */,
+				FBE1BC6C1B61C02300CAC898 /* grass.png in Resources */,
 				FB0A3B951B5BF41100394F62 /* SkyShader.vsh in Resources */,
 				3C0C6B301B28934400EB3BD7 /* 2dLight.vsh in Resources */,
 				FBE1BC6B1B61C02300CAC898 /* corn3.png in Resources */,
 				FBE1BC6D1B61C02300CAC898 /* sky.png in Resources */,
 				FBE1BC661B61C02300CAC898 /* Cloud1.png in Resources */,
+				FB20E3991B685DC500FDE62B /* SunShader.fsh in Resources */,
 				3C0C6B321B28935B00EB3BD7 /* 2dLight.fsh in Resources */,
+				FB20E3951B6854C100FDE62B /* SunShader.vsh in Resources */,
 				FB0A3B941B5BF41100394F62 /* SkyShader.fsh in Resources */,
 				3C6521A91B0AAA6900AAA7A3 /* LaunchScreen.xib in Resources */,
 				FBE1BC671B61C02300CAC898 /* Cloud2.png in Resources */,

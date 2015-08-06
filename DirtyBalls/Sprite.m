@@ -16,6 +16,13 @@
 
 @implementation Sprite
 
+- (void)setPosition:(GLKVector3)position {
+    _position = position;
+    if (self.renderableObject) {
+        self.renderableObject.modelViewMatrix = GLKMatrix4MakeTranslation(position.x, position.y, position.z);
+    }
+}
+
 #pragma mark init
 - (instancetype)initWithPosition:(GLKVector3)position size:(CGSize)size andColor:(GLfloat *)color {
     if (self = [super init]) {
@@ -26,6 +33,7 @@
         [mesh initColorBuffer:color count:16];
         self.renderableObject = [[RenderableObject alloc] initWithMesh:mesh];
         self.renderableObject.color = color;
+        self.renderableObject.modelViewMatrix = GLKMatrix4MakeTranslation(self.position.x, self.position.y, self.position.z);
     }
     
     return self;
@@ -46,6 +54,7 @@
         [mesh initTexture1Buffer:texture count:8];
         self.renderableObject = [[RenderableObject alloc] initWithMesh:mesh];
         self.renderableObject.texture1 = texture1;
+        self.renderableObject.modelViewMatrix = GLKMatrix4MakeTranslation(self.position.x, self.position.y, self.position.z);
     }
     
     return self;
@@ -83,6 +92,11 @@
     [mesh initIndexBuffer:indices count:6];
     
     return mesh;
+}
+
+- (void)move:(GLKVector3)velocity {
+    self.position = GLKVector3Make(self.position.x + velocity.x, self.position.y + velocity.y, self.position.z + velocity.z);
+    self.renderableObject.modelViewMatrix = GLKMatrix4MakeTranslation(self.position.x, self.position.y, self.position.z);
 }
 
 @end

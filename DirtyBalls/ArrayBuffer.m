@@ -13,7 +13,6 @@
     NSMutableArray *m_buffers;
 }
 
-
 @end
 
 @implementation ArrayBuffer
@@ -37,13 +36,15 @@
 
 
 - (void)addBuffer:(Buffer *)buffer atIndex:(GLint)index {
-    [m_buffers addObject:[NSNumber numberWithInt:buffer.vbo]];
-    [self bind];
-    [buffer bind];
-    glEnableVertexAttribArray(index);
-    glVertexAttribPointer(index, buffer.componentCount, GL_FLOAT, GL_FALSE, 0, 0);
-    [buffer unbind];
-    [self unbind];
+    if (![m_buffers containsObject:[NSNumber numberWithInt:buffer.vbo]]) {
+        [m_buffers addObject:[NSNumber numberWithInt:buffer.vbo]];
+        [self bind];
+        [buffer bind];
+        glEnableVertexAttribArray(index);
+        glVertexAttribPointer(index, buffer.componentCount, GL_FLOAT, GL_FALSE, 0, 0);
+        [buffer unbind];
+        [self unbind];
+    }
 }
 
 - (void)bind {
