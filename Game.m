@@ -8,6 +8,7 @@
 
 #import "Game.h"
 #import "Sky.h"
+#import "Sun.h"
 #import "FirstRender2d.h"
 #import "StaticShader.h"
 #import "Projection.h"
@@ -25,7 +26,7 @@
     Sprite *cloud1;
     Sprite *cloud2;
     Sprite *cloud3;
-    Sprite *sun;
+    Sun *sun;
 }
 
 @end
@@ -59,16 +60,8 @@
 }
 
 - (void)initSun {
-    StaticShader *sunShader = [[StaticShader alloc] initWithVShader:@"SunShader.vsh" andFShader:@"SunShader.fsh"];
-    [sunShader setProjectionMatrix:projection.projectionMatrix];
-    GLfloat color[] = {
-        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
-        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
-        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
-        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
-    };
-    sun = [[Sprite alloc] initWithPosition:GLKVector3Make(0, 0, -10) size:CGSizeMake(projection.width, projection.height) andColor:color];
-    sun.renderableObject.shader = sunShader;
+    sun = [[Sun alloc] initWithProjection:projection];
+    sun.sky = sky;
 }
 
 - (void)initCorn {
@@ -136,19 +129,10 @@
 #pragma mark update
 - (void)update:(float)timeSinceLastUpdate {
     [sky updateSky:timeSinceLastUpdate];
+    [sun updateSun:timeSinceLastUpdate];
     [self updateCorn:timeSinceLastUpdate];
     [self updateCloud:timeSinceLastUpdate];
     [self updateGrass:timeSinceLastUpdate];
-}
-
-- (void)updateSky:(float)timeSinceLastUpdate {
-    GLfloat color[] = {
-        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
-        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
-        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
-        249.0 / 255.0, 241.0 / 255.0, 7.0 / 255.0, 1.0,
-    };
-    [[[sky renderableObject] mesh] initColorBuffer:color count:16];
 }
 
 - (void)updateCorn:(float)timeSinceLastUpdate {

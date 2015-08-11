@@ -173,6 +173,10 @@
     glUniform1i([self getUniformLocation:name], i);
 }
 
+- (void)setUniform1f:(NSString *)name :(GLfloat)f {
+    glUniform1f([self getUniformLocation:name], f);
+}
+
 - (void)setUniformMat4:(NSString *)name :(GLKMatrix4)m {
     glUniformMatrix4fv([self getUniformLocation:name], 1, GL_FALSE, m.m);
 }
@@ -187,6 +191,10 @@
 
 - (void)setUniformVec3:(NSString *)name :(GLKVector3)v {
     glUniform3fv([self getUniformLocation:name], 1, v.v);
+}
+
+- (void)setUniformVec2:(NSString *)name :(GLKVector2)v {
+    glUniform2fv([self getUniformLocation:name], 1, v.v);
 }
 
 @end

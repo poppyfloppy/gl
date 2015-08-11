@@ -31,6 +31,8 @@
 		FB0A3B941B5BF41100394F62 /* SkyShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FB0A3B921B5BF41100394F62 /* SkyShader.fsh */; };
 		FB0A3B951B5BF41100394F62 /* SkyShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FB0A3B931B5BF41100394F62 /* SkyShader.vsh */; };
 		FB0A3B981B5C27A200394F62 /* StaticShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A3B971B5C27A200394F62 /* StaticShader.m */; };
+		FB16EA0D1B742A2A00275CA2 /* Sun.m in Sources */ = {isa = PBXBuildFile; fileRef = FB16EA0C1B742A2A00275CA2 /* Sun.m */; };
+		FB16EA101B759A0100275CA2 /* SunShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FB16EA0F1B759A0100275CA2 /* SunShader.m */; };
 		FB20E3951B6854C100FDE62B /* SunShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FB20E3941B6854C100FDE62B /* SunShader.vsh */; };
 		FB20E3991B685DC500FDE62B /* SunShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FB20E3981B685DC500FDE62B /* SunShader.fsh */; };
 		FBE1BC661B61C02300CAC898 /* Cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC5E1B61C02300CAC898 /* Cloud1.png */; };
@@ -101,6 +103,10 @@
 		FB0A3B931B5BF41100394F62 /* SkyShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SkyShader.vsh; sourceTree = "<group>"; };
 		FB0A3B961B5C27A200394F62 /* StaticShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StaticShader.h; sourceTree = "<group>"; };
 		FB0A3B971B5C27A200394F62 /* StaticShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StaticShader.m; sourceTree = "<group>"; };
+		FB16EA0B1B742A2A00275CA2 /* Sun.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Sun.h; sourceTree = "<group>"; };
+		FB16EA0C1B742A2A00275CA2 /* Sun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sun.m; sourceTree = "<group>"; };
+		FB16EA0E1B759A0100275CA2 /* SunShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunShader.h; sourceTree = "<group>"; };
+		FB16EA0F1B759A0100275CA2 /* SunShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunShader.m; sourceTree = "<group>"; };
 		FB20E3941B6854C100FDE62B /* SunShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunShader.vsh; sourceTree = "<group>"; };
 		FB20E3981B685DC500FDE62B /* SunShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunShader.fsh; sourceTree = "<group>"; };
 		FBE1BC5E1B61C02300CAC898 /* Cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud1.png; sourceTree = "<group>"; };
@@ -150,6 +156,8 @@
 				3C0C6B2F1B28934400EB3BD7 /* 2dLight.vsh */,
 				FB0A3B921B5BF41100394F62 /* SkyShader.fsh */,
 				FB0A3B931B5BF41100394F62 /* SkyShader.vsh */,
+				FB16EA0E1B759A0100275CA2 /* SunShader.h */,
+				FB16EA0F1B759A0100275CA2 /* SunShader.m */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -288,6 +296,8 @@
 			children = (
 				FBE1BC731B61C5B200CAC898 /* Sky.h */,
 				FBE1BC741B61C5B200CAC898 /* Sky.m */,
+				FB16EA0B1B742A2A00275CA2 /* Sun.h */,
+				FB16EA0C1B742A2A00275CA2 /* Sun.m */,
 			);
 			name = Nodes;
 			sourceTree = "<group>";
@@ -409,6 +419,7 @@
 				FBE1BC711B61C08F00CAC898 /* Game.m in Sources */,
 				3C0C6B501B2F8CAA00EB3BD7 /* BatchRender2d.m in Sources */,
 				3C0C6B4C1B2B409800EB3BD7 /* FirstRender2d.m in Sources */,
+				FB16EA101B759A0100275CA2 /* SunShader.m in Sources */,
 				3C65219A1B0AAA6900AAA7A3 /* AppDelegate.m in Sources */,
 				3C2C69191B377E6100EC2ACF /* Layer.m in Sources */,
 				3C0C6B491B2B22C700EB3BD7 /* RenderableObject.m in Sources */,
@@ -416,6 +427,7 @@
 				3C0C6B401B2AE62300EB3BD7 /* IndexBuffer.m in Sources */,
 				3C7A33A61B10043000159E36 /* ShaderProgram.m in Sources */,
 				FB0A3B981B5C27A200394F62 /* StaticShader.m in Sources */,
+				FB16EA0D1B742A2A00275CA2 /* Sun.m in Sources */,
 				3C0C6B431B2B224400EB3BD7 /* Render2d.m in Sources */,
 				3C2C691C1B383F6D00EC2ACF /* Texture.m in Sources */,
 				FBE1BC781B63CB0400CAC898 /* Projection.m in Sources */,
