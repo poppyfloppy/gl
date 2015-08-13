@@ -14,8 +14,10 @@
 #import "Projection.h"
 #import "Sprite.h"
 #import "Texture.h"
+#import "Time.h"
 
 @interface Game () {
+    Time *time;
     Projection *projection;
     FirstRender2d *renderer;
     Sky *sky;
@@ -43,6 +45,7 @@
 
 - (void)initGame {
     projection = [Projection sharedProjection];
+    time = [Time sharedTime];
     [self initRenderer];
     [self initSky];
     [self initCorn];
@@ -56,12 +59,11 @@
 }
 
 - (void)initSky {
-    sky = [[Sky alloc] initWithProjection:projection];
+    sky = [[Sky alloc] initWithProjection:projection andTime:time];
 }
 
 - (void)initSun {
-    sun = [[Sun alloc] initWithProjection:projection];
-    sun.sky = sky;
+    sun = [[Sun alloc] initWithProjection:projection andTime:time];
 }
 
 - (void)initCorn {
@@ -128,7 +130,8 @@
 
 #pragma mark update
 - (void)update:(float)timeSinceLastUpdate {
-    [sky updateSky:timeSinceLastUpdate];
+    [time updateTime:timeSinceLastUpdate];
+    [sky updateSky];
     [sun updateSun:timeSinceLastUpdate];
     [self updateCorn:timeSinceLastUpdate];
     [self updateCloud:timeSinceLastUpdate];

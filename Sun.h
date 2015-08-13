@@ -7,15 +7,14 @@
 //
 
 #import "Sprite.h"
+#import "Time.h"
 #import "Projection.h"
-#import "Sky.h"
 
 @interface Sun : Sprite
 
 - (void)updateSun:(float)timeSinceLastUpdate;
-- (instancetype)initWithProjection:(Projection *)projection;
+- (instancetype)initWithProjection:(Projection *)projection andTime:(Time *)time;
 
-@property (nonatomic, strong) Sky *sky;
 @property (nonatomic) float r;
 @property (nonatomic) GLKVector2 sunPosition;
 

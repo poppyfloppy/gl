@@ -33,6 +33,8 @@
 		FB0A3B981B5C27A200394F62 /* StaticShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FB0A3B971B5C27A200394F62 /* StaticShader.m */; };
 		FB16EA0D1B742A2A00275CA2 /* Sun.m in Sources */ = {isa = PBXBuildFile; fileRef = FB16EA0C1B742A2A00275CA2 /* Sun.m */; };
 		FB16EA101B759A0100275CA2 /* SunShader.m in Sources */ = {isa = PBXBuildFile; fileRef = FB16EA0F1B759A0100275CA2 /* SunShader.m */; };
+		FB16EA131B7AB22200275CA2 /* Time.m in Sources */ = {isa = PBXBuildFile; fileRef = FB16EA121B7AB22100275CA2 /* Time.m */; };
+		FB16EA161B7AD1D700275CA2 /* Light.m in Sources */ = {isa = PBXBuildFile; fileRef = FB16EA151B7AD1D700275CA2 /* Light.m */; };
 		FB20E3951B6854C100FDE62B /* SunShader.vsh in Resources */ = {isa = PBXBuildFile; fileRef = FB20E3941B6854C100FDE62B /* SunShader.vsh */; };
 		FB20E3991B685DC500FDE62B /* SunShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = FB20E3981B685DC500FDE62B /* SunShader.fsh */; };
 		FBE1BC661B61C02300CAC898 /* Cloud1.png in Resources */ = {isa = PBXBuildFile; fileRef = FBE1BC5E1B61C02300CAC898 /* Cloud1.png */; };
@@ -107,6 +109,10 @@
 		FB16EA0C1B742A2A00275CA2 /* Sun.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Sun.m; sourceTree = "<group>"; };
 		FB16EA0E1B759A0100275CA2 /* SunShader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SunShader.h; sourceTree = "<group>"; };
 		FB16EA0F1B759A0100275CA2 /* SunShader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SunShader.m; sourceTree = "<group>"; };
+		FB16EA111B7AB22100275CA2 /* Time.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Time.h; sourceTree = "<group>"; };
+		FB16EA121B7AB22100275CA2 /* Time.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Time.m; sourceTree = "<group>"; };
+		FB16EA141B7AD1D700275CA2 /* Light.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Light.h; sourceTree = "<group>"; };
+		FB16EA151B7AD1D700275CA2 /* Light.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Light.m; sourceTree = "<group>"; };
 		FB20E3941B6854C100FDE62B /* SunShader.vsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunShader.vsh; sourceTree = "<group>"; };
 		FB20E3981B685DC500FDE62B /* SunShader.fsh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.glsl; path = SunShader.fsh; sourceTree = "<group>"; };
 		FBE1BC5E1B61C02300CAC898 /* Cloud1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Cloud1.png; sourceTree = "<group>"; };
@@ -158,6 +164,8 @@
 				FB0A3B931B5BF41100394F62 /* SkyShader.vsh */,
 				FB16EA0E1B759A0100275CA2 /* SunShader.h */,
 				FB16EA0F1B759A0100275CA2 /* SunShader.m */,
+				FB16EA141B7AD1D700275CA2 /* Light.h */,
+				FB16EA151B7AD1D700275CA2 /* Light.m */,
 			);
 			name = Shaders;
 			sourceTree = "<group>";
@@ -286,6 +294,8 @@
 				FBE1BC721B61C59F00CAC898 /* Nodes */,
 				FBE1BC6F1B61C08F00CAC898 /* Game.h */,
 				FBE1BC701B61C08F00CAC898 /* Game.m */,
+				FB16EA111B7AB22100275CA2 /* Time.h */,
+				FB16EA121B7AB22100275CA2 /* Time.m */,
 			);
 			name = Game;
 			path = ..;
@@ -424,6 +434,7 @@
 				3C2C69191B377E6100EC2ACF /* Layer.m in Sources */,
 				3C0C6B491B2B22C700EB3BD7 /* RenderableObject.m in Sources */,
 				FB0A3B911B5BE82700394F62 /* Mesh2d.m in Sources */,
+				FB16EA131B7AB22200275CA2 /* Time.m in Sources */,
 				3C0C6B401B2AE62300EB3BD7 /* IndexBuffer.m in Sources */,
 				3C7A33A61B10043000159E36 /* ShaderProgram.m in Sources */,
 				FB0A3B981B5C27A200394F62 /* StaticShader.m in Sources */,
@@ -435,6 +446,7 @@
 				3C0C6B371B29E01E00EB3BD7 /* ArrayBuffer.m in Sources */,
 				3C0C6B3A1B2AE2B200EB3BD7 /* Buffer.m in Sources */,
 				FBE1BC751B61C5B200CAC898 /* Sky.m in Sources */,
+				FB16EA161B7AD1D700275CA2 /* Light.m in Sources */,
 				3C7A72601B4BEEE000C1FEB2 /* Sprite.m in Sources */,
 				3C6521971B0AAA6900AAA7A3 /* main.m in Sources */,
 			);

@@ -9,21 +9,12 @@
 #import <Foundation/Foundation.h>
 #import "Sprite.h"
 #import "Projection.h"
-typedef enum SKY_TIME {
-    kMorning = 0,
-    kMidday = 1,
-    kEvening = 2,
-    kMidnight = 3,
-} kSkyTime;
+#import "Time.h"
 
 @interface Sky : Sprite {
-    
 }
 
-@property (nonatomic, readonly) kSkyTime skyTime;
-
-- (float)getPeriodtime;
-- (void)updateSky:(float)timeSinceLastUpdate;
-- (instancetype)initWithProjection:(Projection *)projection;
+- (void)updateSky;
+- (instancetype)initWithProjection:(Projection *)projection andTime:(Time *)time;
 
 @end

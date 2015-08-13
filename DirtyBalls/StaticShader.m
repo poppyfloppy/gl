@@ -20,4 +20,11 @@
     [self setUniformMat4:@"modelViewMatrix" :modelViewMatrix];
 }
 
+- (void)setLight1:(Light *)light1 {
+    [self activateProgram];
+    [self setUniform1f:@"lightIntensity" :light1.intensity];
+    [self setUniformVec2:@"lightPosition" :light1.lightPosition];
+    [self disableProgram];
+}
+
 @end

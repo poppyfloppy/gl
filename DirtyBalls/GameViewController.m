@@ -33,6 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.context = [[EAGLContext alloc] initWithAPI:kEAGLRenderingAPIOpenGLES3];
+    self.preferredFramesPerSecond = 50;
     GLKView *view = (GLKView *)self.view;
     view.context = self.context;
     view.drawableDepthFormat = GLKViewDrawableDepthFormat24;
@@ -75,7 +76,7 @@
 
 #pragma mark - GLKView and GLKViewController delegate methods
 - (void)update {
-    NSLog(@"fps: %f", 1 / self.timeSinceLastUpdate);
+    NSLog(@"fps: %d", self.framesPerSecond);
     [game update:self.timeSinceLastUpdate];
 }
 

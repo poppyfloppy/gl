@@ -21,7 +21,7 @@ GLfloat color[] = {
 
 @interface Sun() {
     SunShader *sunShader;
-    float time;
+    Time *mTime;
 }
 
 @end
@@ -38,13 +38,14 @@ GLfloat color[] = {
     [sunShader setR:r];
 }
 
-- (instancetype)initWithProjection:(Projection *)projection {
+- (instancetype)initWithProjection:(Projection *)projection andTime:(Time *)time {
     if (self = [super initWithPosition:GLKVector3Make(0, 0, -10) size:CGSizeMake(projection.width, projection.height) andColor:color]) {
         sunShader = [[SunShader alloc] initWithVShader:@"SunShader.vsh" andFShader:@"SunShader.fsh"];
         self.sunPosition = DEFAULT_SUN_POSITION;
         self.r = DEFAULT_SUN_R;
         [sunShader setProjectionMatrix:projection.projectionMatrix];
         self.renderableObject.shader = sunShader;
+        mTime = time;
     }
     
     return self;
@@ -52,13 +53,13 @@ GLfloat color[] = {
 
 - (void)updateSun:(float)timeSinceLastUpdate {
     //Закат
-    if (self.sky.skyTime == kEvening) {
-        float v = (DEFAULT_SUN_POSITION.y + 2 * DEFAULT_SUN_R) / [self.sky getPeriodtime];
+    if (mTime.dayPart == kEvening) {
+        float v = (DEFAULT_SUN_POSITION.y + 2 * DEFAULT_SUN_R) / [mTime getDurationDayPart];
         self.sunPosition = GLKVector2Make(self.sunPosition.x, self.sunPosition.y - timeSinceLastUpdate * v);
     }
     //Рассвет
-    if (self.sky.skyTime == kMidnight) {
-        float v = (DEFAULT_SUN_POSITION.y + 2 * DEFAULT_SUN_R) / [self.sky getPeriodtime];
+    if (mTime.dayPart == kMidnight) {
+        float v = (DEFAULT_SUN_POSITION.y + 2 * DEFAULT_SUN_R) / [mTime getDurationDayPart];
         self.sunPosition = GLKVector2Make(self.sunPosition.x, self.sunPosition.y + timeSinceLastUpdate * v);
     }
 }
